@@ -1,12 +1,17 @@
-import React from "react";
-// import { Routes, Route } from "react-router-dom";
+// import React from "react";
+import { Routes, Route } from "react-router-dom";
+import Homepage from "./components/Homepage";
+import Navbar from "./components/Navbar";
 
-function App() {
+const App = () => {
   return (
     <>
-      <div>App.js</div>
+      <div>{<Navbar />}</div>
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+      </Routes>
     </>
   );
-}
+};
 
 export default App;
