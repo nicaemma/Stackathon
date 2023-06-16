@@ -1,6 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { AiOutlinePlus } from "react-icons/ai";
 import Skill from "./Skill";
+
+import { db } from "../firebase";
+import { collection, getDocs } from "firebase/firestore";
 
 const style = {
   bg: `h-screen w-screen p-4 bg-indigo-500`,
@@ -12,11 +15,24 @@ const style = {
 };
 
 const Skills = () => {
-  const [skills, setSkills] = useState([
-    "Go for a walk",
-    "Yoga",
-    "Call a friend",
-  ]);
+  const [skills, setSkills] = useState([]);
+
+  // Create skill
+  // Read skill from firebase
+  const skillsCollectionRef = collection(db, "skills");
+  useEffect(() => {
+    const getSkills = async () => {
+      const data = await getDocs(skillsCollectionRef);
+      setSkills(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    };
+    getSkills();
+  }, []);
+
+  console.log("skills-->", skills);
+
+  // Update skill in firebase
+  // Delete skill
+
   return (
     <div className={style.bg}>
       <div className={style.container}>

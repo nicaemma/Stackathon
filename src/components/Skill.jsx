@@ -15,7 +15,7 @@ const Skill = ({ skill }) => {
     <li className={style.li}>
       <div className={style.row}>
         <input type="checkbox" />
-        <p className={style.text}>{skill}</p>
+        <p className={style.text}>{skill.text}</p>
       </div>
       <button>{<FaRegTrashAlt />} </button>
     </li>
