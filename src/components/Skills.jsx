@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { AiOutlinePlus } from "react-icons/ai";
+import Skill from "./Skill";
 
 const style = {
   bg: `h-screen w-screen p-4 bg-indigo-500`,
 };
 
 const Skills = () => {
+  const [skills, setSkills] = useState([
+    "Go for a walk",
+    "Yoga",
+    "Call a friend",
+  ]);
   return (
     <div className={style.bg}>
       <div className={style.container}>
@@ -20,6 +26,11 @@ const Skills = () => {
             <AiOutlinePlus />
           </button>
         </form>
+        <ul>
+          {skills.map((skill, index) => (
+            <Skill key={index} skill={skill} />
+          ))}
+        </ul>
       </div>
     </div>
   );
