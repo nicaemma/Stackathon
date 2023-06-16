@@ -4,6 +4,7 @@ import Skill from "./Skill";
 
 const style = {
   bg: `h-screen w-screen p-4 bg-indigo-500`,
+  container: `bg-slate-100 max-w-[500px] w-full m-auto rounded-md shadow-xl p-4`,
 };
 
 const Skills = () => {
