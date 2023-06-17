@@ -53,11 +53,13 @@ const Skills = () => {
     try {
       await addDoc(skillsCollectionRef, {
         text: newSkill,
+        completed: false,
         // category: category,
         // benefits: benefits,
         // obstacles: obstacles,
         // author: { name: currentUser.displayName, id: currentUser.uid },
       });
+      setNewSkill("");
       // navigate("/my-coping-skills");
     } catch (err) {
       console.log(err.message);
@@ -85,6 +87,7 @@ const Skills = () => {
         <h3 className={style.heading}>My Coping Skills</h3>
         <form className={style.form} onSubmit={createSkill}>
           <input
+            value={newSkill}
             className={style.input}
             type="text"
             placeholder="Add coping skill"
