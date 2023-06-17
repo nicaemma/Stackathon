@@ -11,6 +11,7 @@ import {
   doc,
   onSnapshot,
   query,
+  deleteDoc,
 } from "firebase/firestore";
 
 const style = {
@@ -80,6 +81,14 @@ const Skills = () => {
   };
 
   // Delete skill
+  const deleteSkill = async (skill) => {
+    const skillRef = doc(db, "skills", skill.id);
+    try {
+      await deleteDoc(skillRef);
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
 
   return (
     <div className={style.bg}>
@@ -99,7 +108,12 @@ const Skills = () => {
         </form>
         <ul>
           {skills.map((skill, index) => (
-            <Skill key={index} skill={skill} toggleComplete={toggleComplete} />
+            <Skill
+              key={index}
+              skill={skill}
+              toggleComplete={toggleComplete}
+              deleteSkill={deleteSkill}
+            />
           ))}
         </ul>
       </div>

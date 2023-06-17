@@ -10,7 +10,7 @@ const style = {
   button: `cursor-pointer flex items-center`,
 };
 
-const Skill = ({ skill, toggleComplete }) => {
+const Skill = ({ skill, toggleComplete, deleteSkill }) => {
   return (
     <li className={style.li}>
       <div className={style.row}>
@@ -26,7 +26,7 @@ const Skill = ({ skill, toggleComplete }) => {
           {skill.text}
         </p>
       </div>
-      <button>{<FaRegTrashAlt />} </button>
+      <button onClick={() => deleteSkill(skill)}>{<FaRegTrashAlt />} </button>
     </li>
   );
 };
