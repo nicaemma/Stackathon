@@ -14,8 +14,10 @@ const Skill = ({ skill }) => {
   return (
     <li className={style.li}>
       <div className={style.row}>
-        <input type="checkbox" />
-        <p className={style.text}>{skill.text}</p>
+        <input type="checkbox" checked={skill.completed ? "checked" : ""} />
+        <p className={skill.completed ? style.textComplete : style.text}>
+          {skill.text}
+        </p>
       </div>
       <button>{<FaRegTrashAlt />} </button>
     </li>
