@@ -3,7 +3,13 @@ import { AiOutlinePlus } from "react-icons/ai";
 import Skill from "./Skill";
 
 import { db } from "../firebase";
-import { collection, getDocs, addDoc } from "firebase/firestore";
+import {
+  collection,
+  getDocs,
+  addDoc,
+  updateDoc,
+  doc,
+} from "firebase/firestore";
 
 const style = {
   bg: `h-screen w-screen p-4 bg-indigo-500`,
@@ -42,7 +48,6 @@ const Skills = () => {
         // obstacles: obstacles,
         // author: { name: currentUser.displayName, id: currentUser.uid },
       });
-      //   console.log("description --> ", description);
       // navigate("/my-coping-skills");
     } catch (err) {
       console.log(err.message);
@@ -50,6 +55,18 @@ const Skills = () => {
   };
 
   // Update skill in firebase
+  const toggleComplete = async (skill) => {
+    // console.log("skill ID-->", skill.id);
+    const skillRef = doc(db, "skills", skill.id);
+    try {
+      await updateDoc(skillRef, {
+        completed: !skill.completed,
+      });
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
+
   // Delete skill
 
   return (
@@ -69,7 +86,7 @@ const Skills = () => {
         </form>
         <ul>
           {skills.map((skill, index) => (
-            <Skill key={index} skill={skill} />
+            <Skill key={index} skill={skill} toggleComplete={toggleComplete} />
           ))}
         </ul>
       </div>
