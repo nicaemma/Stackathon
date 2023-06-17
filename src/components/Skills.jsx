@@ -9,6 +9,8 @@ import {
   addDoc,
   updateDoc,
   doc,
+  onSnapshot,
+  query,
 } from "firebase/firestore";
 
 const style = {
@@ -24,13 +26,21 @@ const Skills = () => {
   const [skills, setSkills] = useState([]);
   const [newSkill, setNewSkill] = useState("");
 
-  // Read skill from firebase
+  // Read skill from firebase --> changed to responsive to changes real-time
   const skillsCollectionRef = collection(db, "skills");
 
   useEffect(() => {
     const getSkills = async () => {
       const data = await getDocs(skillsCollectionRef);
-      setSkills(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      const q = query(skillsCollectionRef);
+      const unsubscribe = onSnapshot(q, (querySnapshot) => {
+        let skillsArr = [];
+        querySnapshot.forEach((doc) => {
+          skillsArr.push({ ...doc.data(), id: doc.id });
+        });
+        setSkills(skillsArr);
+      });
+      // setSkills(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
     getSkills();
   }, []);
