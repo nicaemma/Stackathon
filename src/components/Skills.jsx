@@ -3,7 +3,7 @@ import { AiOutlinePlus } from "react-icons/ai";
 import Skill from "./Skill";
 
 import { db } from "../firebase";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, addDoc } from "firebase/firestore";
 
 const style = {
   bg: `h-screen w-screen p-4 bg-indigo-500`,
@@ -16,10 +16,11 @@ const style = {
 
 const Skills = () => {
   const [skills, setSkills] = useState([]);
+  const [newSkill, setNewSkill] = useState("");
 
-  // Create skill
   // Read skill from firebase
   const skillsCollectionRef = collection(db, "skills");
+
   useEffect(() => {
     const getSkills = async () => {
       const data = await getDocs(skillsCollectionRef);
@@ -30,6 +31,24 @@ const Skills = () => {
 
   console.log("skills-->", skills);
 
+  // Create skill
+  const createSkill = async (e) => {
+    e.preventDefault();
+    try {
+      await addDoc(skillsCollectionRef, {
+        text: newSkill,
+        // category: category,
+        // benefits: benefits,
+        // obstacles: obstacles,
+        // author: { name: currentUser.displayName, id: currentUser.uid },
+      });
+      //   console.log("description --> ", description);
+      // navigate("/my-coping-skills");
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
+
   // Update skill in firebase
   // Delete skill
 
@@ -37,13 +56,14 @@ const Skills = () => {
     <div className={style.bg}>
       <div className={style.container}>
         <h3 className={style.heading}>My Coping Skills</h3>
-        <form className={style.form}>
+        <form className={style.form} onSubmit={createSkill}>
           <input
             className={style.input}
             type="text"
             placeholder="Add coping skill"
+            onChange={(e) => setNewSkill(e.target.value)}
           />
-          <button className={style.button}>
+          <button className={style.button} type="submit">
             <AiOutlinePlus />
           </button>
         </form>
