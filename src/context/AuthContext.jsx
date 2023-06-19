@@ -4,6 +4,7 @@ import {
   createUserWithEmailAndPassword,
   updateProfile,
   onAuthStateChanged,
+  signOut,
 } from "firebase/auth";
 import { auth } from "../firebase";
 
@@ -22,6 +23,11 @@ export const AuthContextProvider = ({ children }) => {
     }
   };
 
+  const logOut = async (email, password) => {
+    const user = await signOut(auth, email, password);
+    console.log(user);
+  };
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setCurrentUser(user);
@@ -37,6 +43,7 @@ export const AuthContextProvider = ({ children }) => {
   const userInfo = {
     currentUser,
     signUp,
+    logOut,
   };
 
   return (
