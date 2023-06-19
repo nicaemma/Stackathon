@@ -16,8 +16,7 @@ export const AuthContextProvider = ({ children }) => {
   const signUp = async (name, email, password) => {
     try {
       await createUserWithEmailAndPassword(auth, email, password);
-      const user = await updateProfile(auth.currentUser, { displayName: name });
-      console.log("user-->", user);
+      await updateProfile(auth.currentUser, { displayName: name });
     } catch (err) {
       console.log(err.message);
     }

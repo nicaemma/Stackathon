@@ -9,6 +9,7 @@ const Signup = () => {
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
 
+  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
   const { signUp } = UserAuth();
@@ -17,7 +18,11 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (passwordRef.current.value !== passwordConfirmRef.current.value) {
+      return setError("Passwords do not match");
+    }
     try {
+      setError("");
       setLoading(true);
       await signUp(
         nameRef.current.value,
@@ -25,8 +30,9 @@ const Signup = () => {
         passwordRef.current.value
       );
       navigate("/dashboard");
-    } catch (err) {
-      console.log(err);
+    } catch {
+      setError("Failed to create user");
+      setLoading(false);
     }
   };
   return (
@@ -40,6 +46,7 @@ const Signup = () => {
             Sign in.
           </Link>
         </p>
+        {error && <div>{error}</div>}
       </div>
       <form onSubmit={handleSubmit}>
         <div className="flex flex-col py-2">
