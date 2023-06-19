@@ -7,6 +7,7 @@ import Signin from "./components/User-Auth/Signin";
 import Signup from "./components/User-Auth/Signup";
 import { AuthContextProvider } from "./context/AuthContext";
 import Dashboard from "./components/User-Auth/Dashboard";
+import ForgotPassword from "./components/User-Auth/ForgotPassword";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
           <Route path="/signin" element={<Signin />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
         </Routes>
       </AuthContextProvider>
     </>

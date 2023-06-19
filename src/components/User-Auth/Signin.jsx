@@ -50,6 +50,9 @@ const Signin = () => {
           Sign In
         </button>
       </form>
+      <div className="w-100 text-center mt-3">
+        <Link to="/forgot-password">Forgot Password?</Link>
+      </div>
     </div>
   );
 };
