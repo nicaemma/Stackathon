@@ -2,6 +2,7 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import {
   createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
   updateProfile,
   onAuthStateChanged,
   signOut,
@@ -23,7 +24,11 @@ export const AuthContextProvider = ({ children }) => {
     }
   };
 
-  const logOut = async (email, password) => {
+  const signIn = async (email, password) => {
+    await signInWithEmailAndPassword(auth, email, password);
+  };
+
+  const signOut = async (email, password) => {
     const user = await signOut(auth, email, password);
     console.log(user);
   };
@@ -43,7 +48,8 @@ export const AuthContextProvider = ({ children }) => {
   const userInfo = {
     currentUser,
     signUp,
-    logOut,
+    signIn,
+    signOut,
   };
 
   return (

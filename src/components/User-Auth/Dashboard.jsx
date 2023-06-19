@@ -3,7 +3,7 @@ import { UserAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
-  const { currentUser, logOut } = UserAuth();
+  const { currentUser, signOut } = UserAuth();
   console.log("currentUser-->", currentUser);
 
   const [error, setError] = useState("");
@@ -12,7 +12,7 @@ const Dashboard = () => {
   async function handleLogout() {
     setError("");
     try {
-      await logOut();
+      await signOut();
       navigate("/signin");
     } catch {
       setError("Failed to log out");
