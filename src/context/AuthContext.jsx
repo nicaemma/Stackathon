@@ -1,27 +1,49 @@
 // We want to be able to access our current user anywhere in our application
-import React, { createContext, useContext, useState } from "react";
-import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import React, { createContext, useContext, useState, useEffect } from "react";
+import {
+  createUserWithEmailAndPassword,
+  updateProfile,
+  onAuthStateChanged,
+} from "firebase/auth";
 import { auth } from "../firebase";
 
 const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
+  const [currentUser, setCurrentUser] = useState();
+  const [loading, setLoading] = useState(true);
+
   const signUp = async (name, email, password) => {
     try {
       await createUserWithEmailAndPassword(auth, email, password);
       const user = await updateProfile(auth.currentUser, { displayName: name });
-      console.log(user);
+      console.log("user-->", user);
     } catch (err) {
       console.log(err.message);
     }
   };
 
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setCurrentUser(user);
+      setLoading(false);
+    });
+    return unsubscribe;
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("user", JSON.stringify(currentUser));
+  }, [currentUser]);
+
   const userInfo = {
+    currentUser,
     signUp,
   };
 
   return (
-    <AuthContext.Provider value={userInfo}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={userInfo}>
+      {!loading && children}
+    </AuthContext.Provider>
   );
 };
 

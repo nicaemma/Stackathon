@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { UserAuth } from "../../context/AuthContext";
 
@@ -9,16 +9,22 @@ const Signup = () => {
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
 
+  const [loading, setLoading] = useState(false);
+
   const { signUp } = UserAuth();
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      setLoading(true);
       await signUp(
         nameRef.current.value,
         emailRef.current.value,
         passwordRef.current.value
       );
+      navigate("/dashboard");
     } catch (err) {
       console.log(err);
     }

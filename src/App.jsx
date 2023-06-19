@@ -6,6 +6,7 @@ import Skills from "./components/Skills";
 import Signin from "./components/User-Auth/Signin";
 import Signup from "./components/User-Auth/Signup";
 import { AuthContextProvider } from "./context/AuthContext";
+import Dashboard from "./components/User-Auth/Dashboard";
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
           <Route path="/skills" element={<Skills />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
       </AuthContextProvider>
     </>
