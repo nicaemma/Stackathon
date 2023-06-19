@@ -1,10 +1,16 @@
+/* 
+*
+PUT IN ENV FILE BEFORE DEPLOYING 
+*
+*/
+
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection } from "firebase/firestore";
 
-// import { getAnalytics } from "firebase/analytics";
+//Auth
+import { getAuth } from "firebase/auth";
 
-// TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
@@ -18,11 +24,15 @@ const firebaseConfig = {
   measurementId: "G-N0RKKB5GC8",
 };
 
+// import { getAnalytics } from "firebase/analytics";
 // const analytics = getAnalytics(app);
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
+
+// Initialize Auth
+export const auth = getAuth(app);
 
 // collection ref
 export const collectionRef = collection(db, "coping-skills");
