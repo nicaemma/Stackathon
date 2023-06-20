@@ -38,7 +38,6 @@ const Skills = () => {
     const getSkills = async () => {
       const id = currentUser.uid;
       const data = await getDocs(skillsCollectionRef);
-      // console.log("id in getSkills-->", id);
       const q = query(skillsCollectionRef);
       const unsubscribe = onSnapshot(q, (querySnapshot) => {
         let skillsArr = [];
@@ -47,20 +46,14 @@ const Skills = () => {
         });
         const finalArr = skillsArr.filter((skill) => {
           if (skill.author) {
-            console.log("skill.author--> ", skill.author);
             if (skill.author.id === id) return skill;
           }
         });
-        console.log("finalArr -->", finalArr);
-
         setSkills(finalArr);
       });
-      // setSkills(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
     getSkills();
   }, []);
-
-  console.log("skills-->", skills);
 
   // Create skill
   const createSkill = async (e) => {
