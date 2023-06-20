@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { AiOutlinePlus } from "react-icons/ai";
 import Skill from "./Skill";
+import { UserAuth } from "../context/AuthContext";
 
 import { db } from "../firebase";
 import {
@@ -26,6 +27,8 @@ const style = {
 const Skills = () => {
   const [skills, setSkills] = useState([]);
   const [newSkill, setNewSkill] = useState("");
+
+  const { currentUser } = UserAuth();
 
   // Read skill from firebase --> changed to responsive to changes real-time
   const skillsCollectionRef = collection(db, "skills");
@@ -58,7 +61,7 @@ const Skills = () => {
         // category: category,
         // benefits: benefits,
         // obstacles: obstacles,
-        // author: { name: currentUser.displayName, id: currentUser.uid },
+        author: { name: currentUser.displayName, id: currentUser.uid },
       });
       setNewSkill("");
       // navigate("/my-coping-skills");
