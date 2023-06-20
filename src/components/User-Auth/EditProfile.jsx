@@ -1,5 +1,6 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { UserAuth } from "../../context/AuthContext";
+import { Link, useNavigate } from "react-router-dom";
 
 const EditProfile = () => {
   const nameRef = useRef();
@@ -9,15 +10,47 @@ const EditProfile = () => {
 
   const { currentUser, editEmail, editPassword, editProfile } = UserAuth();
 
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (passwordRef.current.value !== passwordConfirmRef.current.value) {
+      setError("Passwords do not match");
+    }
+    setLoading(true);
+    setError("");
+    if (emailRef.current.value !== currentUser.email) {
+      try {
+        await editEmail(emailRef.current.value);
+      } catch (err) {
+        return setError(err.message);
+      }
+    }
+    if (passwordRef.current.value) {
+      try {
+        await editPassword(passwordRef.current.value);
+      } catch (err) {
+        return setError(err.message);
+      }
+    }
+    if (nameRef.current.value !== currentUser.displayName) {
+      try {
+        await editProfile(nameRef.current.value);
+      } catch (err) {
+        return setError(err.message);
+      }
+    }
+    navigate("/dashboard");
   };
   return (
     <div className="'max-w-[700px] mx-auto my-16 p-4">
       <div>
         <h1 className="text-2xl font-bold py-2">Edit Your Information</h1>
 
-        {/* {error && <div>{error}</div>} */}
+        {error && <div>{error}</div>}
       </div>
       <form onSubmit={handleSubmit}>
         <div className="flex flex-col py-2">
@@ -59,6 +92,9 @@ const EditProfile = () => {
         <button className="border border-blue-500 bg-blue-600 hover:bg-blue-500 w-full p-4 my-2 text-white">
           Submit Edits
         </button>
+        <div>
+          <Link to="/dashboard">Back to Dashboard</Link>
+        </div>
       </form>
     </div>
   );
