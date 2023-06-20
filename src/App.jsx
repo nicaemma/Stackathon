@@ -9,6 +9,7 @@ import { AuthContextProvider } from "./context/AuthContext";
 import Dashboard from "./components/User-Auth/Dashboard";
 import ForgotPassword from "./components/User-Auth/ForgotPassword";
 import EditProfile from "./components/User-Auth/EditProfile";
+import MemoryGame from "./components/MemoryGame";
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/edit-profile" element={<EditProfile />} />
+          <Route path="/memory" element={<MemoryGame />} />
         </Routes>
       </AuthContextProvider>
     </>
