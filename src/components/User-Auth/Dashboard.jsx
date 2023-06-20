@@ -24,6 +24,9 @@ const Dashboard = () => {
       <h1>Dashboard</h1>
       <p>{currentUser.displayName}</p>
       <div className="w-100 text-center mt-2">
+        <button onClick={() => navigate("/edit-profile")}>Edit Profile</button>
+      </div>
+      <div className="w-100 text-center mt-2">
         <button onClick={handleLogout}>Log Out</button>
       </div>
     </>
