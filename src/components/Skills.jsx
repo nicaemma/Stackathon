@@ -12,7 +12,6 @@ import {
   doc,
   onSnapshot,
   query,
-  where,
   deleteDoc,
 } from "firebase/firestore";
 
@@ -37,9 +36,9 @@ const Skills = () => {
   useEffect(() => {
     const getSkills = async () => {
       const id = currentUser.uid;
-      const data = await getDocs(skillsCollectionRef);
+      await getDocs(skillsCollectionRef);
       const q = query(skillsCollectionRef);
-      const unsubscribe = onSnapshot(q, (querySnapshot) => {
+      onSnapshot(q, (querySnapshot) => {
         let skillsArr = [];
         querySnapshot.forEach((doc) => {
           skillsArr.push({ ...doc.data(), id: doc.id });
@@ -62,13 +61,9 @@ const Skills = () => {
       await addDoc(skillsCollectionRef, {
         text: newSkill,
         completed: false,
-        // category: category,
-        // benefits: benefits,
-        // obstacles: obstacles,
         author: { name: currentUser.displayName, id: currentUser.uid },
       });
       setNewSkill("");
-      // navigate("/my-coping-skills");
     } catch (err) {
       console.log(err.message);
     }
@@ -76,7 +71,6 @@ const Skills = () => {
 
   // Update skill in firebase
   const toggleComplete = async (skill) => {
-    // console.log("skill ID-->", skill.id);
     const skillRef = doc(db, "skills", skill.id);
     try {
       await updateDoc(skillRef, {
