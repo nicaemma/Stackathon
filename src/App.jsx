@@ -8,6 +8,7 @@ import Signup from "./components/User-Auth/Signup";
 import { AuthContextProvider } from "./context/AuthContext";
 import Dashboard from "./components/User-Auth/Dashboard";
 import ForgotPassword from "./components/User-Auth/ForgotPassword";
+import EditProfile from "./components/User-Auth/EditProfile";
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
           <Route path="/signup" element={<Signup />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/edit-profile" element={<EditProfile />} />
         </Routes>
       </AuthContextProvider>
     </>
