@@ -12,6 +12,7 @@ import {
   doc,
   onSnapshot,
   query,
+  where,
   deleteDoc,
 } from "firebase/firestore";
 
@@ -35,14 +36,24 @@ const Skills = () => {
 
   useEffect(() => {
     const getSkills = async () => {
+      const id = currentUser.uid;
       const data = await getDocs(skillsCollectionRef);
+      // console.log("id in getSkills-->", id);
       const q = query(skillsCollectionRef);
       const unsubscribe = onSnapshot(q, (querySnapshot) => {
         let skillsArr = [];
         querySnapshot.forEach((doc) => {
           skillsArr.push({ ...doc.data(), id: doc.id });
         });
-        setSkills(skillsArr);
+        const finalArr = skillsArr.filter((skill) => {
+          if (skill.author) {
+            console.log("skill.author--> ", skill.author);
+            if (skill.author.id === id) return skill;
+          }
+        });
+        console.log("finalArr -->", finalArr);
+
+        setSkills(finalArr);
       });
       // setSkills(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
