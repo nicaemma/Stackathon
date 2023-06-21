@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
-  const [nav, setNav] = useState(false);
+  const [nav, setNav] = useState(true);
+  const navigate = useNavigate();
 
   const handleNav = () => {
     console.log("changing nav");
@@ -20,9 +22,15 @@ const Navbar = () => {
           Mindful Matters
         </h1>
         <ul className="hidden md:flex">
-          <li className="p-8">Home</li>
+          <Link to="/">
+            <li className="p-8">Home</li>
+          </Link>
+
           <li className="p-8 whitespace-nowrap">My Self Care</li>
-          <li className="p-8">Activities</li>
+          <Link to="/memory">
+            <li className="p-8">Activities</li>
+          </Link>
+
           <li className="p-8">Resources</li>
         </ul>
         <div className="block md:hidden">
