@@ -3,13 +3,13 @@ import { Routes, Route } from "react-router-dom";
 import Homepage from "./components/Homepage";
 import Navbar from "./components/Navbar";
 import Skills from "./components/Skills";
-import Signin from "./components/User-Auth/Signin";
-import Signup from "./components/User-Auth/Signup";
+import Signin from "./components/user-auth/Signin";
+import Signup from "./components/user-auth/Signup";
 import { AuthContextProvider } from "./context/AuthContext";
-import Dashboard from "./components/User-Auth/Dashboard";
-import ForgotPassword from "./components/User-Auth/ForgotPassword";
-import EditProfile from "./components/User-Auth/EditProfile";
-import MemoryGame from "./components/MemoryGame";
+import Dashboard from "./components/user-auth/Dashboard";
+import ForgotPassword from "./components/user-auth/ForgotPassword";
+import EditProfile from "./components/user-auth/EditProfile";
+import MemoryGame from "./components/memory/MemoryGame";
 
 const App = () => {
   return (
