@@ -43,6 +43,16 @@ const MemoryGame = () => {
               New Game
             </button>
           </div>
+          <div>
+            {cards.map((card) => (
+              <div key={card.id}>
+                <div>
+                  <img src={card.src} alt="card front" />
+                  <img src="/img/memory/back-of-card.png" alt="card back" />
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
