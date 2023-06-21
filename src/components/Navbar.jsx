@@ -12,16 +12,20 @@ const Navbar = () => {
   return (
     <div className=" bg-[#c7d2fe] font-sora">
       <div className="flex justify-between items-center h-24 max-w-[1240px] mx-auto px-4 text-white">
-        <h1 className="w-full text-3xl font-bold text-[#3730a3]">
+        <h1
+          className={
+            !nav ? "hidden" : "w-full text-3xl font-bold text-[#3730a3]"
+          }
+        >
           Mindful Matters
         </h1>
-        <ul className="flex hidden">
-          <li className="p-4">Home</li>
+        <ul className="hidden md:flex">
+          <li className="p-8">Home</li>
           <li className="p-8 whitespace-nowrap">My Self Care</li>
-          <li className="p-4">Activities</li>
-          <li className="p-4">Resources</li>
+          <li className="p-8">Activities</li>
+          <li className="p-8">Resources</li>
         </ul>
-        <div>
+        <div className="block md:hidden">
           <button onClick={handleNav} className="absolute top-8 right-4 z-[99]">
             {!nav ? <AiOutlineClose size={30} /> : <AiOutlineMenu size={30} />}
           </button>
@@ -29,11 +33,11 @@ const Navbar = () => {
         <div
           className={
             !nav
-              ? "fixed left-0 top-0 w-[20%] h-full border-r border-r-gray-900 bg-[#c7d2fe]"
+              ? "fixed left-0 top-0 w-[30%] h-full border-r border-r-gray-900 bg-[#c7d2fe] md:hidden"
               : "fixed left-[-100%]"
           }
         >
-          <h1 className="w-full text-3xl pt-8 font-bold text-[#3730a3]">
+          <h1 className="w-full text-3xl p-4 font-bold text-[#3730a3]">
             Mindful Matters
           </h1>
           <ul className="pt-12 uppercase">
