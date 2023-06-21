@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import SingleCard from "./SingleCard";
 
 const cardImages = [
   { src: "/img/memory/meditation-sillhouette.png" },
@@ -45,12 +46,7 @@ const MemoryGame = () => {
           </div>
           <div className="grid grid-cols-4 gap-4">
             {cards.map((card) => (
-              <div key={card.id}>
-                <div>
-                  <img src={card.src} alt="card front" />
-                  <img src="/img/memory/back-of-card.png" alt="card back" />
-                </div>
-              </div>
+              <SingleCard card={card} key={card.id} />
             ))}
           </div>
         </div>
