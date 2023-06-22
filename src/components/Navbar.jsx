@@ -25,12 +25,12 @@ const Navbar = () => {
           <Link to="/">
             <li className="p-8">Home</li>
           </Link>
-
-          <li className="p-8 whitespace-nowrap">My Self Care</li>
+          <Link to="/skills">
+            <li className="p-8 whitespace-nowrap">My Self Care</li>
+          </Link>
           <Link to="/memory">
             <li className="p-8">Activities</li>
           </Link>
-
           <li className="p-8">Resources</li>
         </ul>
         <div className="block md:hidden">

@@ -30,9 +30,6 @@ const MemoryGame = () => {
     setTurns(0);
   };
 
-  // console.log("cards-->", cards);
-  // console.log("turns-->", turns);
-
   // reset choices & increase turn
   const resetTurn = () => {
     setChoiceOne(null);

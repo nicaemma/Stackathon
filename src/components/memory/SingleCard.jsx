@@ -2,10 +2,8 @@ import React from "react";
 
 const SingleCard = ({ card, handleChoice, flipped, disabled }) => {
   const handleClick = (card) => {
-    console.log("flipped-->", flipped);
     if (!disabled) {
       handleChoice(card);
-      console.log("flipped-->", flipped);
     }
   };
 
@@ -21,7 +19,6 @@ const SingleCard = ({ card, handleChoice, flipped, disabled }) => {
           src={card.src}
           alt="card front"
         />
-
         <img
           className={
             flipped
