@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import SingleCard from "./SingleCard";
 
 const cardImages = [
@@ -14,18 +14,60 @@ const MemoryGame = () => {
   const [cards, setCards] = useState([]);
   const [turns, setTurns] = useState(0);
 
+  const [choiceOne, setChoiceOne] = useState(null);
+  const [choiceTwo, setChoiceTwo] = useState(null);
+  const [disabled, setDisabled] = useState(false);
+
   // shuffle cards --> runs at the start to initialize game.
   const shuffleCards = () => {
     const shuffledCards = [...cardImages, ...cardImages]
       .sort(() => Math.random() - 0.5)
       .map((card) => ({ ...card, id: Math.random() }));
     // Map above: ...card --> each card's properties (src), id --> add this property to each card
+    setChoiceOne(null);
+    setChoiceTwo(null);
     setCards(shuffledCards);
     setTurns(0);
   };
 
-  console.log("cards-->", cards);
-  console.log("turns-->", turns);
+  // console.log("cards-->", cards);
+  // console.log("turns-->", turns);
+
+  // reset choices & increase turn
+  const resetTurn = () => {
+    setChoiceOne(null);
+    setChoiceTwo(null);
+    setTurns((prevTurns) => prevTurns + 1);
+    setDisabled(false);
+  };
+
+  useEffect(() => {
+    if (choiceOne && choiceTwo) {
+      setDisabled(true);
+      if (choiceOne.src === choiceTwo.src) {
+        // Return --> spread card properties with matched property changed to 'true'.
+        setCards((prevCards) => {
+          return prevCards.map((card) => {
+            if (card.src === choiceOne.src) {
+              return { ...card, matched: true };
+            } else {
+              return card;
+            }
+          });
+        });
+        resetTurn();
+      } else {
+        // Wait 1000ms (1sec) and then call resetTurn()
+        setTimeout(() => resetTurn(), 1300);
+      }
+    }
+  }, [choiceOne, choiceTwo]);
+
+  // handle a choice
+  const handleChoice = (card) => {
+    choiceOne ? setChoiceTwo(card) : setChoiceOne(card);
+  };
+  // Above: if choiceOne is true, we setChoiceTwo
 
   return (
     <div>
@@ -46,7 +88,15 @@ const MemoryGame = () => {
           </div>
           <div className="grid grid-cols-4 gap-4">
             {cards.map((card) => (
-              <SingleCard card={card} key={card.id} />
+              <SingleCard
+                key={card.id}
+                card={card}
+                handleChoice={handleChoice}
+                disabled={disabled}
+                flipped={
+                  card === choiceOne || card === choiceTwo || card.matched
+                }
+              />
             ))}
           </div>
         </div>
