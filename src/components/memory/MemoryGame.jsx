@@ -72,37 +72,29 @@ const MemoryGame = () => {
   }, []);
 
   return (
-    <div>
-      <img
-        className="w-full h-screen top-20 object-cover object-left"
-        src="https://img.freepik.com/premium-vector/dark-green-abstract-watercolor-texture-background_65186-958.jpg?w=2000"
-      />
-      <div className="absolute w-full h-screen top-20 left-0 font-fira">
-        <div className="p-20 m-auto flex flex-col items-center">
-          <h1 className="text-white text-2xl text-center">Memory Game</h1>
-          <div className="max-w-[40%] w-fit h-fit m-5">
-            <button
-              onClick={shuffleCards}
-              className="justify-center border border-white rounded-md p-2 text-white bg-[#3730a3] hover:bg-[#6366f1] cursor-pointer"
-            >
-              New Game
-            </button>
-          </div>
-          <div className="grid grid-cols-4 gap-4">
-            {cards.map((card) => (
-              <SingleCard
-                key={card.id}
-                card={card}
-                handleChoice={handleChoice}
-                disabled={disabled}
-                flipped={
-                  card === choiceOne || card === choiceTwo || card.matched
-                }
-              />
-            ))}
-          </div>
-          <p className="mt-5 text-white">Turns: {turns}</p>
+    <div className="font-fira w-full h-screen top-20 bg-cover bg-no-repeat bg-[url('https://img.freepik.com/premium-vector/dark-green--watercolor-texture-background_65186-958.jpg?w=2000')]">
+      <div className="p-20 max-w-[800px] max-h-[90%] m-auto flex flex-col items-center">
+        <h1 className="text-white text-2xl text-center">Memory Game</h1>
+        <div className="max-w-[40%] w-fit h-fit m-5">
+          <button
+            onClick={shuffleCards}
+            className="justify-center border border-white rounded-md p-2 text-white bg-[#3730a3] hover:bg-[#6366f1] cursor-pointer"
+          >
+            New Game
+          </button>
         </div>
+        <div className="grid grid-cols-3 gap-4">
+          {cards.map((card) => (
+            <SingleCard
+              key={card.id}
+              card={card}
+              handleChoice={handleChoice}
+              disabled={disabled}
+              flipped={card === choiceOne || card === choiceTwo || card.matched}
+            />
+          ))}
+        </div>
+        <p className="mt-5 text-white">Turns: {turns}</p>
       </div>
     </div>
   );
