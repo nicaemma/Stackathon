@@ -32,8 +32,8 @@ const Homepage = () => {
                   </p>
                 ) : (
                   <p>
-                    Continue your self care & exploration of mindful resources
-                    here
+                    Continue your self care tracker & cultivating awareness for
+                    your wellbeing
                   </p>
                 )}
               </div>
