@@ -69,6 +69,11 @@ const MemoryGame = () => {
   };
   // Above: if choiceOne is true, we setChoiceTwo
 
+  // start new game right away
+  useEffect(() => {
+    shuffleCards();
+  }, []);
+
   return (
     <div>
       <img
@@ -99,6 +104,7 @@ const MemoryGame = () => {
               />
             ))}
           </div>
+          <p className="mt-5 text-white">Turns: {turns}</p>
         </div>
       </div>
     </div>
