@@ -1,14 +1,21 @@
 import React, { useState } from "react";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
+import { IoMdArrowDropdown } from "react-icons/io";
 
 const Navbar = () => {
   const [nav, setNav] = useState(true);
   const navigate = useNavigate();
 
+  const [activities, setActivities] = useState(false);
+
   const handleNav = () => {
     console.log("changing nav");
     setNav(!nav);
+  };
+
+  const handleActivities = () => {
+    setActivities(!activities);
   };
 
   return (
@@ -28,9 +35,38 @@ const Navbar = () => {
           <Link to="/skills">
             <li className="p-8 whitespace-nowrap">My Self Care</li>
           </Link>
-          <Link to="/memory">
-            <li className="p-8">Activities</li>
-          </Link>
+          <li className="relative p-8">
+            <button
+              onClick={handleActivities}
+              className=" overflow-hidden focus:border-white text-white bg-[#c7d2fe] inline-flex items-center"
+              type="button"
+            >
+              Activities{" "}
+              <span>
+                <IoMdArrowDropdown />
+              </span>
+            </button>
+            <div
+              className={
+                activities
+                  ? "absolute mt-2 py-2 bg-[#c7d2fe] rounded-lg"
+                  : "hidden"
+              }
+            >
+              <ul>
+                <Link to="/memory">
+                  <li className="block px-4 py-2 hover:bg-gray-500">
+                    Memory Game
+                  </li>
+                </Link>
+                <Link to="/journal">
+                  <li className="block px-4 py-2 hover:bg-gray-500">
+                    Journaling
+                  </li>
+                </Link>
+              </ul>
+            </div>
+          </li>
           <li className="p-8">Resources</li>
         </ul>
         <div className="block md:hidden">
