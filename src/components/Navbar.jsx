@@ -53,7 +53,7 @@ const Navbar = () => {
                   : "hidden"
               }
             >
-              <ul>
+              <ul onClick={() => setActivities(false)}>
                 <Link to="/memory">
                   <li className="block px-4 py-2 hover:bg-gray-500">
                     Memory Game
