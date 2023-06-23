@@ -10,6 +10,7 @@ import Dashboard from "./components/user-auth/Dashboard";
 import ForgotPassword from "./components/user-auth/ForgotPassword";
 import EditProfile from "./components/user-auth/EditProfile";
 import MemoryGame from "./components/memory/MemoryGame";
+import Journal from "./components/journal/Journal";
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/edit-profile" element={<EditProfile />} />
           <Route path="/memory" element={<MemoryGame />} />
+          <Route path="/journal" element={<Journal />} />
         </Routes>
       </AuthContextProvider>
     </>
