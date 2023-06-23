@@ -14,8 +14,8 @@ import MemoryGame from "./components/memory/MemoryGame";
 const App = () => {
   return (
     <>
-      <div>{<Navbar />}</div>
       <AuthContextProvider>
+        <div>{<Navbar />}</div>
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/skills" element={<Skills />} />

@@ -21,14 +21,14 @@ export const AuthContextProvider = ({ children }) => {
   const signUp = async (name, email, password) => {
     try {
       await createUserWithEmailAndPassword(auth, email, password);
-      await updateProfile(auth.currentUser, { displayName: name });
+      const user = await updateProfile(auth.currentUser, { displayName: name });
     } catch (err) {
       console.log(err.message);
     }
   };
 
   const signIn = async (email, password) => {
-    await signInWithEmailAndPassword(auth, email, password);
+    const user = await signInWithEmailAndPassword(auth, email, password);
   };
 
   const logOut = async (email, password) => {
@@ -60,7 +60,12 @@ export const AuthContextProvider = ({ children }) => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
-      setCurrentUser(user);
+      if (user) {
+        setCurrentUser(user);
+      } else {
+        setCurrentUser(false);
+      }
+
       setLoading(false);
     });
     return unsubscribe;

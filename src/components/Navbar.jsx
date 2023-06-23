@@ -2,10 +2,14 @@ import React, { useState } from "react";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
 import { IoMdArrowDropdown } from "react-icons/io";
+import { UserAuth } from "../context/AuthContext";
 
 const Navbar = () => {
   const [nav, setNav] = useState(true);
   const navigate = useNavigate();
+
+  const { currentUser } = UserAuth();
+  // console.log("currentUser-->", currentUser);
 
   const [activities, setActivities] = useState(false);
 
@@ -67,9 +71,17 @@ const Navbar = () => {
               </ul>
             </div>
           </li>
-          <Link to="/dashboard">
-            <li className="p-8">Account</li>
-          </Link>
+          {!currentUser ? (
+            <Link to="/signup">
+              <li className="p-8 whitespace-nowrap">Sign Up</li>
+            </Link>
+          ) : (
+            <Link to="/dashboard">
+              <li className="p-8 whitespace-nowrap">
+                Hi, {currentUser.displayName}
+              </li>
+            </Link>
+          )}
         </ul>
         <div className="block md:hidden">
           <button onClick={handleNav} className="absolute top-8 right-4 z-[99]">
