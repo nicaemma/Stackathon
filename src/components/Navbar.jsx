@@ -67,7 +67,9 @@ const Navbar = () => {
               </ul>
             </div>
           </li>
-          <li className="p-8">Resources</li>
+          <Link to="/dashboard">
+            <li className="p-8">Account</li>
+          </Link>
         </ul>
         <div className="block md:hidden">
           <button onClick={handleNav} className="absolute top-8 right-4 z-[99]">
