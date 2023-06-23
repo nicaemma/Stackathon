@@ -25,7 +25,6 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
-console.log("Firebase API key-->", firebaseConfig.apiKey);
 // import { getAnalytics } from "firebase/analytics";
 // const analytics = getAnalytics(app);
 

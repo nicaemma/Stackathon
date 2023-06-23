@@ -1,10 +1,35 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { UserAuth } from "../context/AuthContext";
 import homeImg from "../../public/img/background6.png";
 
 const Homepage = () => {
   const { currentUser } = UserAuth();
+
+  const clientId = import.meta.env.VITE_CLIENT_ID;
+  const redirectURI = import.meta.env.VITE_REDIRECT_URI;
+  const authEndpoint = import.meta.env.VITE_AUTH_ENDPOINT;
+  const responseType = import.meta.env.VITE_RESPONSE_TYPE;
+
+  const [token, setToken] = useState("");
+
+  useEffect(() => {
+    const hash = window.location.hash;
+    let token = window.localStorage.getItem("token");
+
+    console.log("token-->", token);
+    console.log("hash-->", hash);
+
+    if (!token && hash) {
+      token = hash
+        .substring(1)
+        .split("&")
+        .find((elem) => elem.startsWith("access_token"))
+        .split("-")[1];
+
+      console.log("token-->", token);
+    }
+  }, []);
   return (
     <div>
       <img className="w-full h-screen top-20 object-cover" src={homeImg} />
@@ -31,10 +56,17 @@ const Homepage = () => {
                     wellbeing
                   </p>
                 ) : (
-                  <p>
-                    Continue your self care tracker & cultivating awareness for
-                    your wellbeing
-                  </p>
+                  <div>
+                    <p>
+                      Continue your self care tracker & cultivating awareness
+                      for your wellbeing
+                    </p>{" "}
+                    <a
+                      href={`${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectURI}&response_type=${responseType}`}
+                    >
+                      Login to Spotify
+                    </a>
+                  </div>
                 )}
               </div>
               {/* </div> */}
