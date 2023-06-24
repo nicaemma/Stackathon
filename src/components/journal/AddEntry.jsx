@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const AddEntry = () => {
   const [newEntry, setNewEntry] = useState("");
@@ -52,6 +52,11 @@ const AddEntry = () => {
               </button>
             </div>
           </form>
+          <Link to="/journal" state={{ test: "this works" }}>
+            <button className="border p-4 ml-2 bg-purple-400 hover:bg-purple-300 rounded-lg">
+              Back to Journal
+            </button>
+          </Link>
         </div>
       </div>
     </div>
