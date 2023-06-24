@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { UserAuth } from "../../context/AuthContext";
 import {
   collection,
@@ -15,10 +15,7 @@ const AddEntry = () => {
 
   const { currentUser } = UserAuth();
 
-  //   const location = useLocation();
-  //   const { journalsCollectionRef } = location.state;
   const journalsCollectionRef = collection(db, "journals");
-  //   console.log("test-->", journalsCollectionRef);
 
   const saveEntry = async (e) => {
     e.preventDefault();

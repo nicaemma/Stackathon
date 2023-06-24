@@ -16,7 +16,6 @@ import { Link } from "react-router-dom";
 
 const Journal = () => {
   const [entries, setEntries] = useState([]);
-  // const [newEntry, setNewEntry] = useState("");
 
   const { currentUser } = UserAuth();
 
@@ -24,7 +23,7 @@ const Journal = () => {
 
   useEffect(() => {
     const getEntries = async () => {
-      // const id = currentUser.uid;
+      const id = currentUser.uid;
       await getDocs(journalsCollectionRef);
       const q = query(journalsCollectionRef);
       onSnapshot(q, (querySnapshot) => {
@@ -32,23 +31,25 @@ const Journal = () => {
         querySnapshot.forEach((doc) => {
           entriesArr.push({ ...doc.data(), id: doc.id });
         });
-        // const finalArr = entriesArr.filter((entry) => {
-        //   if (entry.author) {
-        //     if (entry.author.id === id) return entry;
-        //   }
-        // });
-        const finalArr = entriesArr.map((entry) => {
-          return {
-            ...entry,
-            date: entry.date.toDate(),
-          };
-        });
-        setEntries(finalArr);
+        if (entriesArr) {
+          const finalArr = entriesArr
+            .filter((entry) => {
+              if (entry.author) {
+                if (entry.author.id === id) return entry;
+              }
+            })
+            .map((entry) => {
+              console.log("entry-->", entry);
+              return {
+                ...entry,
+                date: entry.date.toDate(),
+              };
+            });
+          setEntries(finalArr);
+        }
       });
     };
     getEntries();
-
-    // console.log("entries-->", entries);
   }, []);
 
   console.log("entries-->", entries);
@@ -60,10 +61,7 @@ const Journal = () => {
           <Entry key={index} entry={entry} />
         ))}
       </div>
-      <Link
-        to="/write"
-        state={{ journalsCollectionRef: journalsCollectionRef }}
-      >
+      <Link to="/write">
         <button className="border p-4 ml-2 bg-purple-400 hover:bg-purple-300 rounded-lg">
           Write New Entry
         </button>
