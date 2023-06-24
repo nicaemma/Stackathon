@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { UserAuth } from "../context/AuthContext";
 import homeImg from "../../public/img/background6.png";
 
+import axios from "axios";
+
 const Homepage = () => {
   const { currentUser } = UserAuth();
 
@@ -15,7 +17,7 @@ const Homepage = () => {
 
   const logoutSpotify = () => {
     setToken("");
-    window.LocalStorage.removeItem("token");
+    window.localStorage.removeItem("token");
   };
 
   useEffect(() => {
