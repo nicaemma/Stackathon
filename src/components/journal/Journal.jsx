@@ -12,6 +12,7 @@ import {
   query,
   deleteDoc,
 } from "firebase/firestore";
+import { Link } from "react-router-dom";
 
 const Journal = () => {
   const [entries, setEntries] = useState([]);
@@ -59,6 +60,11 @@ const Journal = () => {
           <Entry key={index} entry={entry} />
         ))}
       </div>
+      <Link to="/write" state={{ test: "this works" }}>
+        <button className="border p-4 ml-2 bg-purple-400 hover:bg-purple-300 rounded-lg">
+          Write New Entry
+        </button>
+      </Link>
     </div>
   );
 };
