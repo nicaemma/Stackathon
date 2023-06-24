@@ -15,14 +15,14 @@ import {
 
 const Journal = () => {
   const [entries, setEntries] = useState([]);
-  const [newEntry, setNewEntry] = useState("");
+  // const [newEntry, setNewEntry] = useState("");
 
   const { currentUser } = UserAuth();
 
   const journalsCollectionRef = collection(db, "journals");
 
   useEffect(() => {
-    const getSkills = async () => {
+    const getEntries = async () => {
       // const id = currentUser.uid;
       await getDocs(journalsCollectionRef);
       const q = query(journalsCollectionRef);
@@ -36,12 +36,21 @@ const Journal = () => {
         //     if (entry.author.id === id) return entry;
         //   }
         // });
-        // setEntries(finalArr);
-        setEntries(entriesArr);
+        const finalArr = entriesArr.map((entry) => {
+          return {
+            ...entry,
+            date: entry.date.toDate(),
+          };
+        });
+        setEntries(finalArr);
       });
     };
-    getSkills();
+    getEntries();
+
+    // console.log("entries-->", entries);
   }, []);
+
+  console.log("entries-->", entries);
 
   return (
     <div className="w-full h-screen top-20 bg-cover bg-no-repeat bg-[url('../../public/img/background3.png')]">

@@ -30,4 +30,5 @@ export const db = getFirestore(app);
 export const auth = getAuth(app);
 
 // collection ref
-export const collectionRef = collection(db, "skills");
+export const skillsCollectionRef = collection(db, "skills");
+export const journalsCollectionRef = collection(db, "journals");
