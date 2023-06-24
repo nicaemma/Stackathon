@@ -28,6 +28,9 @@ const Homepage = () => {
         .split("-")[1];
 
       console.log("token-->", token);
+
+      window.localStorage.setItem("token", token);
+      setToken(token);
     }
   }, []);
   return (
