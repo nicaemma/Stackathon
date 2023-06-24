@@ -86,13 +86,11 @@ const Homepage = () => {
                       </button>
                     )}
 
-                    {token ? (
+                    {token && (
                       <form>
                         <input />
                         <button type="text">Search</button>
                       </form>
-                    ) : (
-                      <div>nothing</div>
                     )}
                   </div>
                 )}
