@@ -14,12 +14,20 @@ const AddEntry = () => {
               type="text"
               placeholder="Journaling..."
             ></textarea>
-            <button className="border p-4 ml-2 bg-purple-400" type="submit">
-              Save
-            </button>
-            <button className="border p-4 ml-2 bg-purple-400" type="submit">
-              Save & Close
-            </button>
+            <div className="flex flex-row justify-center">
+              <button
+                className="border p-4 ml-2 bg-purple-400 hover:bg-purple-300 rounded-lg"
+                type="submit"
+              >
+                Save
+              </button>
+              <button
+                className="border p-4 ml-2 bg-purple-400 hover:bg-purple-300 rounded-lg"
+                type="submit"
+              >
+                Save & Close
+              </button>
+            </div>
           </form>
         </div>
       </div>
