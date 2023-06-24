@@ -32,10 +32,8 @@ const ViewEntry = () => {
       const docRef = doc(journalsCollectionRef, entryId);
       const docSnap = await getDoc(docRef);
       if (docSnap.exists()) {
-        const entry = docSnap.data();
-        console.log("entry-->", entry);
-        setSingleEntry(entry);
-        const date = singleEntry.date.toDate();
+        await setSingleEntry(docSnap.data());
+        const date = docSnap.data().date.toDate();
         setDate(date.toDateString());
         setTime(
           date.toLocaleTimeString([], {
@@ -43,7 +41,6 @@ const ViewEntry = () => {
             minute: "2-digit",
           })
         );
-        console.log("date-->", date);
       } else {
         setSingleEntry(false);
       }
