@@ -3,7 +3,6 @@ import { AiOutlinePlus } from "react-icons/ai";
 import Skill from "./Skill";
 import { UserAuth } from "../context/AuthContext";
 import skillsImg from "../../public/img/background5.png";
-
 import { db } from "../firebase";
 import {
   collection,
