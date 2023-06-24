@@ -39,7 +39,6 @@ const Journal = () => {
               }
             })
             .map((entry) => {
-              console.log("entry-->", entry);
               return {
                 ...entry,
                 date: entry.date.toDate(),
@@ -51,8 +50,6 @@ const Journal = () => {
     };
     getEntries();
   }, []);
-
-  console.log("entries-->", entries);
 
   return (
     <div className="w-full h-screen top-20 bg-cover bg-no-repeat bg-[url('../../public/img/background3.png')]">
