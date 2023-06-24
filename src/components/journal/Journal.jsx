@@ -60,7 +60,10 @@ const Journal = () => {
           <Entry key={index} entry={entry} />
         ))}
       </div>
-      <Link to="/write" state={{ test: "this works" }}>
+      <Link
+        to="/write"
+        state={{ journalsCollectionRef: journalsCollectionRef }}
+      >
         <button className="border p-4 ml-2 bg-purple-400 hover:bg-purple-300 rounded-lg">
           Write New Entry
         </button>
