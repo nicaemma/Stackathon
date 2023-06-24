@@ -13,12 +13,17 @@ const Homepage = () => {
 
   const [token, setToken] = useState("");
 
+  const logoutSpotify = () => {
+    setToken("");
+    window.LocalStorage.removeItem("token");
+  };
+
   useEffect(() => {
     const hash = window.location.hash;
     let token = window.localStorage.getItem("token");
 
-    console.log("token-->", token);
-    console.log("hash-->", hash);
+    // console.log("token-->", token);
+    // console.log("hash-->", hash);
 
     if (!token && hash) {
       token = hash
@@ -27,12 +32,15 @@ const Homepage = () => {
         .find((elem) => elem.startsWith("access_token"))
         .split("-")[1];
 
-      console.log("token-->", token);
+      // console.log("token-->", token);
 
       window.localStorage.setItem("token", token);
-      setToken(token);
     }
+    setToken(token);
   }, []);
+
+  console.log("token-->", token);
+
   return (
     <div>
       <img className="w-full h-screen top-20 object-cover" src={homeImg} />
@@ -63,12 +71,18 @@ const Homepage = () => {
                     <p>
                       Continue your self care tracker & cultivating awareness
                       for your wellbeing
-                    </p>{" "}
-                    <a
-                      href={`${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectURI}&response_type=${responseType}`}
-                    >
-                      Login to Spotify
-                    </a>
+                    </p>
+                    {!token ? (
+                      <a
+                        href={`${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectURI}&response_type=${responseType}`}
+                      >
+                        Login to Spotify
+                      </a>
+                    ) : (
+                      <button onClick={logoutSpotify}>
+                        Log out of Spotify
+                      </button>
+                    )}
                   </div>
                 )}
               </div>
