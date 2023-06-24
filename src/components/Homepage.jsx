@@ -85,6 +85,15 @@ const Homepage = () => {
                         Log out of Spotify
                       </button>
                     )}
+
+                    {token ? (
+                      <form>
+                        <input />
+                        <button type="text">Search</button>
+                      </form>
+                    ) : (
+                      <div>nothing</div>
+                    )}
                   </div>
                 )}
               </div>
