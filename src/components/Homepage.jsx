@@ -15,17 +15,33 @@ const Homepage = () => {
 
   const [token, setToken] = useState("");
 
+  const [searchKey, setSearchKey] = useState("");
+
   const logoutSpotify = () => {
     setToken("");
     window.localStorage.removeItem("token");
   };
 
+  const searchArtists = async (e) => {
+    console.log("token-->", token);
+    console.log("bearer-->", `Bearer ${token}`);
+
+    e.preventDefault();
+    const { data } = await axios.get("https://api.spotify.com/v1/search", {
+      header: {
+        Authorization: "Bearer" + token,
+      },
+      params: {
+        q: searchKey,
+        type: "artist",
+      },
+    });
+    console.log("data-->", data);
+  };
+
   useEffect(() => {
     const hash = window.location.hash;
     let token = window.localStorage.getItem("token");
-
-    // console.log("token-->", token);
-    // console.log("hash-->", hash);
 
     if (!token && hash) {
       token = hash
@@ -33,15 +49,10 @@ const Homepage = () => {
         .split("&")
         .find((elem) => elem.startsWith("access_token"))
         .split("-")[1];
-
-      // console.log("token-->", token);
-
       window.localStorage.setItem("token", token);
     }
     setToken(token);
   }, []);
-
-  console.log("token-->", token);
 
   return (
     <div>
@@ -87,9 +98,12 @@ const Homepage = () => {
                     )}
 
                     {token && (
-                      <form>
-                        <input />
-                        <button type="text">Search</button>
+                      <form onSubmit={searchArtists}>
+                        <input
+                          type="text"
+                          onChange={(e) => setSearchKey(e.target.value)}
+                        />
+                        <button type={"submit"}>Search</button>
                       </form>
                     )}
                   </div>
