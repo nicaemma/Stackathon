@@ -61,7 +61,7 @@ const AddEntry = () => {
               </button>
             </div>
           </form>
-          <Link to="/journal" state={{ test: "this works" }}>
+          <Link to="/journal">
             <button className="border p-4 ml-2 bg-purple-400 hover:bg-purple-300 rounded-lg">
               Back to Journal
             </button>
