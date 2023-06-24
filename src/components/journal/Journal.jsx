@@ -1,9 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import Entry from "./Entry";
 
 const Journal = () => {
   return (
-    <div>
+    <div className="container">
       <h1>Journal</h1>
+      <Entry />
+      <Entry />
+      <Entry />
+      <Entry />
     </div>
   );
 };
