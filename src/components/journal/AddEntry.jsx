@@ -3,7 +3,10 @@ import { Link } from "react-router-dom";
 import { UserAuth } from "../../context/AuthContext";
 import {
   collection,
+  query,
+  where,
   addDoc,
+  getDocs,
   updateDoc,
   doc,
   Timestamp,
@@ -19,6 +22,17 @@ const AddEntry = () => {
 
   const saveEntry = async (e) => {
     e.preventDefault();
+
+    const q = query(journalsCollectionRef, where("content", "==", newEntry));
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      console.log(doc.id, " => ", doc.data());
+    });
+    // const docRef = doc(journalsCollectionRef, entryId);
+    // const docSnap = await getDoc(docRef);
+    // if (docSnap.exists()) {
+    // }
+
     try {
       await addDoc(journalsCollectionRef, {
         content: newEntry,
