@@ -15,6 +15,8 @@ import { db } from "../../firebase";
 
 const AddEntry = () => {
   const [newEntry, setNewEntry] = useState("");
+  const [entryId, setEntryId] = useState(false);
+  const [clear, setClear] = useState(false);
 
   const { currentUser } = UserAuth();
 
@@ -22,24 +24,35 @@ const AddEntry = () => {
 
   const saveEntry = async (e) => {
     e.preventDefault();
-
-    const q = query(journalsCollectionRef, where("content", "==", newEntry));
-    const querySnapshot = await getDocs(q);
-    querySnapshot.forEach((doc) => {
-      console.log(doc.id, " => ", doc.data());
-    });
-    // const docRef = doc(journalsCollectionRef, entryId);
-    // const docSnap = await getDoc(docRef);
-    // if (docSnap.exists()) {
-    // }
-
     try {
-      await addDoc(journalsCollectionRef, {
-        content: newEntry,
-        date: Timestamp.now(),
-        author: { name: currentUser.displayName, id: currentUser.uid },
-      });
-      setNewEntry("");
+      // check if entry has already been saved
+      if (entryId) {
+        const entryRef = doc(db, "journals", entryId);
+        await updateDoc(entryRef, {
+          content: newEntry,
+        });
+      } else {
+        await addDoc(journalsCollectionRef, {
+          content: newEntry,
+          date: Timestamp.now(),
+          author: { name: currentUser.displayName, id: currentUser.uid },
+        });
+
+        const q = query(
+          journalsCollectionRef,
+          where("content", "==", newEntry)
+        );
+        const querySnapshot = await getDocs(q);
+
+        querySnapshot.forEach((doc) => {
+          setEntryId(doc.id);
+        });
+      }
+
+      // clear form
+      if (clear) {
+        setNewEntry("");
+      }
     } catch (err) {
       console.log(err.message);
     }
@@ -70,6 +83,7 @@ const AddEntry = () => {
               <button
                 className="border p-4 ml-2 bg-purple-400 hover:bg-purple-300 rounded-lg"
                 type="submit"
+                onClick={() => setClear(true)}
               >
                 Save & Close
               </button>
