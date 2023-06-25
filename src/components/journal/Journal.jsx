@@ -58,7 +58,7 @@ const Journal = () => {
           <Entry key={index} entry={entry} />
         ))}
       </div>
-      <Link to="/write">
+      <Link to="/journal/write">
         <button className="border p-4 ml-2 bg-purple-400 hover:bg-purple-300 rounded-lg">
           Write New Entry
         </button>

@@ -53,7 +53,7 @@ const Navbar = () => {
             <div
               className={
                 activities
-                  ? "absolute mt-2 py-2 bg-[#c7d2fe] rounded-lg"
+                  ? "absolute mt-2 py-2 bg-[#c7d2fe] rounded-lg z-[99]"
                   : "hidden"
               }
             >

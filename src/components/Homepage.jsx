@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { UserAuth } from "../context/AuthContext";
-import homeImg from "../../public/img/background6.png";
 
 import axios from "axios";
 
@@ -56,8 +55,7 @@ const Homepage = () => {
 
   return (
     <div>
-      <img className="w-full h-screen top-20 object-cover" src={homeImg} />
-      <div className="absolute w-full h-screen top-20 left-0 font-fira">
+      <div className="w-full h-screen font-fira top-20 bg-cover bg-no-repeat bg-[url('../../public/img/background6.png')]">
         <div className="max-w-[600px] m-auto h-full w-full flex flex-col items-center">
           <div className="flex flex-row mt-20 justify-center bg-[#fff7ed] opacity-[90%] rounded-lg">
             <div className="mb-10 ml-4 ">
