@@ -2,34 +2,24 @@ import React, { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import {
   collection,
-  getDocs,
   getDoc,
-  addDoc,
   updateDoc,
   doc,
-  onSnapshot,
-  query,
-  where,
   deleteDoc,
 } from "firebase/firestore";
-import { UserAuth } from "../../context/AuthContext";
 import { db } from "../../firebase";
-import { MdDeleteForever } from "react-icons/md";
-import EditEntry from "./EditEntry";
 
 const ViewEntry = () => {
   const [singleEntry, setSingleEntry] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
 
+  const [entry, setEntry] = useState("");
   const [edit, setEdit] = useState("");
   const [close, setClose] = useState(false);
 
   const params = useParams();
   const entryId = params.id;
-
-  const { currentUser } = UserAuth();
-
   const navigate = useNavigate();
 
   const journalsCollectionRef = collection(db, "journals");
@@ -62,8 +52,6 @@ const ViewEntry = () => {
     }
   };
 
-  const [entry, setEntry] = useState("");
-
   const editEntry = async (e) => {
     e.preventDefault();
     try {
@@ -72,7 +60,8 @@ const ViewEntry = () => {
         content: entry,
       });
       await getSingleEntry();
-      // back to View
+
+      // Switch from Edit back to View
       if (close) {
         setEdit(false);
       }
@@ -95,7 +84,7 @@ const ViewEntry = () => {
       {!edit ? (
         <div>
           <div className="max-w-[700px] m-auto p-4">
-            <div className="bg-[#eef2ff] bg-no-repeat p-2 mb-10 rounded-lg drop-shadow-md min-h-[800px] ">
+            <div className="bg-[#eef2ff] bg-no-repeat p-2 mb-10 rounded-lg drop-shadow-md min-h-[800px]">
               <div className="p-5 flex flex-col justify-between">
                 <div className="flex flex-row gap-4 font-sora text-[15px]">
                   <div>{date}</div>
@@ -131,8 +120,8 @@ const ViewEntry = () => {
           </div>
         </div>
       ) : (
-        <div>
-          <div>
+        <div className="max-w-[700px] m-auto p-4">
+          <div className="bg-[#eef2ff] bg-no-repeat p-2 mb-10 rounded-lg drop-shadow-md min-h-[800px]">
             <form className="flex flex-col" onSubmit={editEntry}>
               <textarea
                 rows="20"
