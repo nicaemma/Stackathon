@@ -14,6 +14,7 @@ import {
 } from "firebase/firestore";
 import { UserAuth } from "../../context/AuthContext";
 import { db } from "../../firebase";
+import { MdDeleteForever } from "react-icons/md";
 
 const ViewEntry = () => {
   const [singleEntry, setSingleEntry] = useState("");
@@ -26,6 +27,15 @@ const ViewEntry = () => {
   const { currentUser } = UserAuth();
 
   const journalsCollectionRef = collection(db, "journals");
+
+  const deleteEntry = async (e) => {
+    e.preventDefault();
+    try {
+      await deleteDoc(doc(db, "journals", entryId));
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
 
   useEffect(() => {
     const getSingleEntry = async () => {
@@ -69,6 +79,14 @@ const ViewEntry = () => {
             Back to Journal
           </button>
         </Link>
+        <div>
+          <button
+            onClick={deleteEntry}
+            className="border p-4 ml-2 bg-red-400 hover:bg-red-300 rounded-lg"
+          >
+            Delete Entry
+          </button>
+        </div>
       </div>
     </div>
   );

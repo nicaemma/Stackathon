@@ -1,5 +1,5 @@
 import React from "react";
-import { MdDeleteForever } from "react-icons/md";
+
 import { Link } from "react-router-dom";
 
 const Entry = ({ entry }) => {
@@ -21,7 +21,6 @@ const Entry = ({ entry }) => {
             View
           </button>
         </Link>
-        <MdDeleteForever />
       </div>
     </div>
   );
