@@ -16,6 +16,8 @@ import { db } from "../../firebase";
 const EditEntry = ({ entryId, content }) => {
   const [entry, setEntry] = useState("");
 
+  const [edit, setEdit] = useState(true);
+
   const editEntry = async (e) => {
     e.preventDefault();
     try {
@@ -55,7 +57,7 @@ const EditEntry = ({ entryId, content }) => {
             <button
               className="border p-4 ml-2 bg-purple-400 hover:bg-purple-300 rounded-lg"
               type="submit"
-              onClick={() => setClear(true)}
+              onClick={() => setEdit(false)}
             >
               Save & Close
             </button>

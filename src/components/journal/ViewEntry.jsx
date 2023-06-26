@@ -23,6 +23,7 @@ const ViewEntry = () => {
   const [time, setTime] = useState("");
 
   const [edit, setEdit] = useState("");
+  const [close, setClose] = useState(false);
 
   const params = useParams();
   const entryId = params.id;
@@ -32,6 +33,24 @@ const ViewEntry = () => {
   const navigate = useNavigate();
 
   const journalsCollectionRef = collection(db, "journals");
+
+  const getSingleEntry = async () => {
+    const docRef = doc(journalsCollectionRef, entryId);
+    const docSnap = await getDoc(docRef);
+    if (docSnap.exists()) {
+      await setSingleEntry(docSnap.data());
+      const date = docSnap.data().date.toDate();
+      setDate(date.toDateString());
+      setTime(
+        date.toLocaleTimeString([], {
+          hour: "2-digit",
+          minute: "2-digit",
+        })
+      );
+    } else {
+      setSingleEntry(false);
+    }
+  };
 
   const deleteEntry = async (e) => {
     e.preventDefault();
@@ -43,24 +62,31 @@ const ViewEntry = () => {
     }
   };
 
-  useEffect(() => {
-    const getSingleEntry = async () => {
-      const docRef = doc(journalsCollectionRef, entryId);
-      const docSnap = await getDoc(docRef);
-      if (docSnap.exists()) {
-        await setSingleEntry(docSnap.data());
-        const date = docSnap.data().date.toDate();
-        setDate(date.toDateString());
-        setTime(
-          date.toLocaleTimeString([], {
-            hour: "2-digit",
-            minute: "2-digit",
-          })
-        );
-      } else {
-        setSingleEntry(false);
+  const [entry, setEntry] = useState("");
+
+  const editEntry = async (e) => {
+    e.preventDefault();
+    try {
+      const entryRef = doc(db, "journals", entryId);
+      await updateDoc(entryRef, {
+        content: entry,
+      });
+      await getSingleEntry();
+      // back to View
+      if (close) {
+        setEdit(false);
       }
-    };
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
+
+  const handleEdit = async () => {
+    await setEntry(singleEntry.content);
+    setEdit(true);
+  };
+
+  useEffect(() => {
     getSingleEntry();
   }, []);
 
@@ -84,7 +110,7 @@ const ViewEntry = () => {
           <div className="grid place-content-center">
             <div>
               <button
-                onClick={() => setEdit(true)}
+                onClick={handleEdit}
                 className="border p-4 ml-2 bg-red-400 hover:bg-red-300 rounded-lg"
               >
                 Edit
@@ -106,7 +132,41 @@ const ViewEntry = () => {
         </div>
       ) : (
         <div>
-          <EditEntry entryId={entryId} content={singleEntry.content} />
+          <div>
+            <form className="flex flex-col" onSubmit={editEntry}>
+              <textarea
+                rows="20"
+                cols="80"
+                className="border p-2 w-full h-full text-xl"
+                value={entry}
+                type="text"
+                placeholder={entry}
+                onChange={(e) => setEntry(e.target.value)}
+              ></textarea>
+              <div className="flex flex-row justify-center">
+                <button
+                  className="border p-4 ml-2 bg-purple-400 hover:bg-purple-300 rounded-lg"
+                  type="submit"
+                >
+                  Save
+                </button>
+                <button
+                  className="border p-4 ml-2 bg-purple-400 hover:bg-purple-300 rounded-lg"
+                  type="submit"
+                  onClick={() => setClose(true)}
+                >
+                  Save & Close
+                </button>
+              </div>
+            </form>
+          </div>
+          <div>
+            <Link to="/journal">
+              <button className="border p-4 ml-2 bg-purple-400 hover:bg-purple-300 rounded-lg">
+                Back to Journal
+              </button>
+            </Link>
+          </div>
         </div>
       )}
     </div>
