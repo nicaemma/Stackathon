@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import {
   collection,
   getDocs,
@@ -26,12 +26,15 @@ const ViewEntry = () => {
 
   const { currentUser } = UserAuth();
 
+  const navigate = useNavigate();
+
   const journalsCollectionRef = collection(db, "journals");
 
   const deleteEntry = async (e) => {
     e.preventDefault();
     try {
       await deleteDoc(doc(db, "journals", entryId));
+      navigate("/journal");
     } catch (err) {
       console.log(err.message);
     }
