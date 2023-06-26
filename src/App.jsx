@@ -13,6 +13,7 @@ import MemoryGame from "./components/memory/MemoryGame";
 import Journal from "./components/journal/Journal";
 import AddEntry from "./components/journal/AddEntry";
 import ViewEntry from "./components/journal/ViewEntry";
+import EditEntry from "./components/journal/EditEntry";
 
 const App = () => {
   return (
@@ -31,6 +32,7 @@ const App = () => {
           <Route path="/journal" element={<Journal />} />
           <Route path="/journal/write" element={<AddEntry />} />
           <Route path="/journal/:id/*" element={<ViewEntry />} />
+          <Route path="/journal/:id/edit" element={<EditEntry />} />
         </Routes>
       </AuthContextProvider>
     </>
