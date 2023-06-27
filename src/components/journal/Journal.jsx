@@ -45,10 +45,10 @@ const Journal = () => {
   return (
     <div className="w-full h-screen font-sora top-20 bg-cover bg-no-repeat bg-[url('../../public/img/journal.jpg')]">
       {!entries ? (
-        <div className="flex flex-col gap-8 pt-12">
-          <div className="place-content-center p-3 flex">
-            <h1 className="">Journaling</h1>
-            <div className="bg-cover bg-no-repeat bg-[url('../../public/img/journal.jpg')]">
+        <div className="max-w-[960px] m-auto p-3 flex flex-col gap-8 items-center">
+          <div className="p-3 max-w-[500px] flex flex-col items-center">
+            <h1 className="font-dawning text-[50px] pb-2">Journaling</h1>
+            <div className="py-5 px-3 rounded-lg text-center ">
               This page is designed to empower you on your self care journey and
               provide a space for self-reflection. Take a moment to pause,
               breathe, and let your thoughts flow onto the digital canvas. Feel
@@ -62,7 +62,7 @@ const Journal = () => {
       ) : (
         <div className="max-w-[960px] m-auto p-3 flex flex-col gap-8 items-center">
           <div className="p-3 max-w-[500px] flex flex-col items-center">
-            <h1 className="font-dawning text-[50px] pb-8">Journaling</h1>
+            <h1 className="font-dawning text-[50px] pb-2">Journaling</h1>
             <div className="py-5 px-3 rounded-lg text-center ">
               This page is designed to provide a space for self-reflection along
               your self care journey. Feel free to explore your emotions,
@@ -74,7 +74,7 @@ const Journal = () => {
             <h1 className="font-sora text-[20px] text-center pt-8 pb-4">
               Past Entries
             </h1>
-            <div className="max-w-[960px] place-content-center m-auto p-3 grid grid-flow-col gap-10">
+            <div className="max-w-[960px] place-content-center m-auto p-3 grid md:grid-cols-3 gap-10">
               {entries.map((entry, index) => (
                 <Entry key={index} entry={entry} />
               ))}
