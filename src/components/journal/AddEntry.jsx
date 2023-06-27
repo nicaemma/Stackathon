@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { UserAuth } from "../../context/AuthContext";
 import {
   collection,
@@ -19,6 +19,7 @@ const AddEntry = () => {
   const [clear, setClear] = useState(false);
 
   const { currentUser } = UserAuth();
+  const navigate = useNavigate();
 
   const journalsCollectionRef = collection(db, "journals");
 
@@ -49,10 +50,12 @@ const AddEntry = () => {
         });
       }
 
-      // clear form
-      if (clear) {
-        setNewEntry("");
-      }
+      // // clear form
+      // if (clear) {
+      //   setNewEntry("");
+      // }
+      // nav back to journal home?
+      navigate("/journal");
     } catch (err) {
       console.log(err.message);
     }
