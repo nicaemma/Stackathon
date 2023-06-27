@@ -72,7 +72,7 @@ const MemoryGame = () => {
   }, []);
 
   return (
-    <div className="font-fira w-full h-screen bg-cover bg-no-repeat bg-[url('https://img.freepik.com/premium-vector/dark-green--watercolor-texture-background_65186-958.jpg?w=2000')]">
+    <div className="font-fira w-full h-full bg-cover bg-no-repeat bg-[url('https://img.freepik.com/premium-vector/dark-green--watercolor-texture-background_65186-958.jpg?w=2000')]">
       <div className="p-20 max-w-[800px] m-auto flex flex-col items-center">
         <h1 className="text-white text-2xl text-center">Memory Game</h1>
         <div className="max-w-[40%] w-fit h-fit m-5">
