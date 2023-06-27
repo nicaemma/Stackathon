@@ -63,7 +63,7 @@ const AddEntry = () => {
 
   return (
     <div className="w-full h-screen font-sora top-20 bg-cover bg-no-repeat bg-[url('../../public/img/journal.jpg')]">
-      <div className="max-w-[600px] m-auto p-4">
+      <div className="max-w-[650px] m-auto p-4">
         <div className="bg-[#eef2ff] p-2 mb-10 flex flex-col justify-between rounded-lg drop-shadow-md md:h-[700px] sm:h-[500px]">
           {" "}
           <form className="flex flex-col" onSubmit={saveEntry}>
@@ -76,7 +76,7 @@ const AddEntry = () => {
               placeholder="Journaling..."
               onChange={(e) => setNewEntry(e.target.value)}
             ></textarea>
-            <div className="flex flex-rows justify-between py-3">
+            <div className="flex flex-rows justify-between py-3 pr-2">
               <button
                 className="border p-2 ml-2 bg-indigo-200 hover:bg-indigo-300 rounded-lg"
                 type="submit"
