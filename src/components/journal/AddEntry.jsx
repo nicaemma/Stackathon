@@ -62,29 +62,29 @@ const AddEntry = () => {
   };
 
   return (
-    <div className="w-full h-screen top-20 bg-cover bg-no-repeat bg-[url('../../public/img/journal.jpg')]">
+    <div className="w-full h-screen font-sora top-20 bg-cover bg-no-repeat bg-[url('../../public/img/journal.jpg')]">
       <div className="max-w-[600px] m-auto p-4">
-        <div className="bg-[#eef2ff] p-2 mb-10 flex flex-col justify-between rounded-lg drop-shadow-md min-h-[800px]">
+        <div className="bg-[#eef2ff] p-2 mb-10 flex flex-col justify-between rounded-lg drop-shadow-md md:h-[700px] sm:h-[500px]">
           {" "}
           <form className="flex flex-col" onSubmit={saveEntry}>
             <textarea
               rows="20"
               cols="80"
-              className="border p-2 w-full h-full text-xl"
+              className="border rounded-lg p-4 w-full h-full text-xl"
               value={newEntry}
               type="text"
               placeholder="Journaling..."
               onChange={(e) => setNewEntry(e.target.value)}
             ></textarea>
-            <div className="flex flex-row justify-center">
+            <div className="flex flex-rows justify-between py-3">
               <button
-                className="border p-4 ml-2 bg-purple-400 hover:bg-purple-300 rounded-lg"
+                className="border p-2 ml-2 bg-indigo-200 hover:bg-indigo-300 rounded-lg"
                 type="submit"
               >
                 Save
               </button>
               <button
-                className="border p-4 ml-2 bg-purple-400 hover:bg-purple-300 rounded-lg"
+                className="border p-2 ml-2 bg-indigo-200 hover:bg-indigo-300 rounded-lg"
                 type="submit"
                 onClick={() => setClear(true)}
               >
@@ -92,8 +92,10 @@ const AddEntry = () => {
               </button>
             </div>
           </form>
+        </div>
+        <div className="flex place-content-center">
           <Link to="/journal">
-            <button className="border p-4 ml-2 bg-purple-400 hover:bg-purple-300 rounded-lg">
+            <button className="border-orange-400 drop-shadow-lg px-3 py-2 ml-2 bg-orange-200 hover:bg-orange-300 rounded-lg">
               Back to Journal
             </button>
           </Link>
