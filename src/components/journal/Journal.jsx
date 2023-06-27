@@ -43,12 +43,12 @@ const Journal = () => {
   }, []);
 
   return (
-    <div className="w-full h-screen font-sora top-20 bg-cover bg-no-repeat bg-[url('../../public/img/journal.jpg')]">
+    <div className="w-full h-full font-sora top-20 bg-cover bg-no-repeat bg-[url('../../public/img/journal.jpg')]">
       {!entries ? (
         <div className="max-w-[960px] m-auto p-3 flex flex-col gap-8 items-center">
           <div className="p-3 max-w-[500px] flex flex-col items-center">
             <h1 className="font-stalemate text-[60px] pb-2">Journaling</h1>
-            <div className="py-5 px-3 rounded-lg text-center ">
+            <div className="py-5 px-3 rounded-lg text-center bg-orange-100">
               This page is designed to empower you on your self care journey and
               provide a space for self-reflection. Take a moment to pause,
               breathe, and let your thoughts flow onto the digital canvas. Feel
@@ -60,10 +60,10 @@ const Journal = () => {
           </div>
         </div>
       ) : (
-        <div className="max-w-[960px] m-auto p-3 flex flex-col gap-8 items-center">
-          <div className="p-3 max-w-[500px] flex flex-col items-center">
+        <div className="max-w-[960px] m-auto pb-8 px-4 flex flex-col gap-8 items-center">
+          <div className="p-3 w-[500px] flex flex-col items-center">
             <h1 className="font-stalemate text-[60px] pb-2">Journaling</h1>
-            <div className="py-5 px-3 rounded-lg text-center ">
+            <div className="py-5 px-3 rounded-lg text-center bg-orange-100">
               This page is designed to provide a space for self-reflection along
               your self care journey. Feel free to explore your emotions,
               aspirations, and experiences as you write, save, and re-read your
@@ -71,7 +71,7 @@ const Journal = () => {
             </div>
           </div>
           <div>
-            <h1 className="font-sora text-[20px] text-center pt-8 pb-4">
+            <h1 className="font-sora text-[20px] text-center pt-3 pb-4">
               Past Entries
             </h1>
             <div className="max-w-[960px] place-content-center m-auto p-3 grid md:grid-cols-3 gap-10">
@@ -83,7 +83,7 @@ const Journal = () => {
 
           <div className="place-content-center p-3 flex">
             <Link to="/journal/write">
-              <button className="border p-3 ml-2 bg-purple-400 hover:bg-purple-300 rounded-lg">
+              <button className="border p-3 ml-2 bg-purple-300 hover:bg-purple-400 rounded-lg">
                 Write New Entry
               </button>
             </Link>
