@@ -63,13 +63,13 @@ const EditEntry = ({ entryId, content }) => {
             </button>
           </div>
         </form>
-      </div>
-      <div>
-        <Link to="/journal">
-          <button className="border p-4 ml-2 bg-purple-400 hover:bg-purple-300 rounded-lg">
-            Back to Journal
-          </button>
-        </Link>
+        <div>
+          <Link to="/journal">
+            <button className="border p-4 ml-2 bg-purple-400 hover:bg-purple-300 rounded-lg">
+              Back to Journal
+            </button>
+          </Link>
+        </div>
       </div>
     </div>
   );

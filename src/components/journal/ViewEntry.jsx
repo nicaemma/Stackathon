@@ -121,7 +121,7 @@ const ViewEntry = () => {
         </div>
       ) : (
         <div className="max-w-[700px] m-auto p-4">
-          <div className="bg-[#eef2ff] bg-no-repeat p-2 mb-10 rounded-lg drop-shadow-md min-h-[800px]">
+          <div className="bg-[#eef2ff] p-2 mb-10 flex flex-col justify-between rounded-lg drop-shadow-md min-h-[800px]">
             <form className="flex flex-col" onSubmit={editEntry}>
               <textarea
                 rows="20"
@@ -148,13 +148,13 @@ const ViewEntry = () => {
                 </button>
               </div>
             </form>
-          </div>
-          <div>
-            <Link to="/journal">
-              <button className="border p-4 ml-2 bg-purple-400 hover:bg-purple-300 rounded-lg">
-                Back to Journal
-              </button>
-            </Link>
+            <div>
+              <Link to="/journal">
+                <button className="border p-4 ml-2 bg-purple-400 hover:bg-purple-300 rounded-lg">
+                  Back to Journal
+                </button>
+              </Link>
+            </div>
           </div>
         </div>
       )}
