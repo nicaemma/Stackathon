@@ -98,13 +98,27 @@ const Navbar = () => {
           <h1 className="w-full text-3xl p-4 font-bold text-[#3730a3]">
             Mindful Matters
           </h1>
-          <ul className="pt-12 uppercase">
-            <li className="p-4 border-b border-gray-400">Home</li>
-            <li className="p-4 border-b border-gray-400 whitespace-nowrap">
-              My Self Care
-            </li>
-            <li className="p-4 border-b border-gray-400">Activities</li>
-            <li className="p-4 border-b border-gray-400">Resources</li>
+          <ul onClick={() => setNav(true)} className="pt-12 uppercase">
+            <Link to="/home">
+              <li className="p-4 border-b border-gray-400">Home</li>
+            </Link>
+            <Link to="/skills">
+              <li className="p-4 border-b border-gray-400 whitespace-nowrap">
+                My Self Care
+              </li>
+            </Link>
+            <Link to="/memory">
+              <li className="p-4 border-b border-gray-400">Activities</li>
+            </Link>
+            {!currentUser ? (
+              <Link to="/signup">
+                <li className="p-4 border-b border-gray-400">Sign Up</li>
+              </Link>
+            ) : (
+              <Link to="/dashboard">
+                <li className="p-4 border-b border-gray-400">Account</li>
+              </Link>
+            )}
           </ul>
         </div>
       </div>
