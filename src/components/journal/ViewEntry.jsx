@@ -80,48 +80,50 @@ const ViewEntry = () => {
   }, []);
 
   return (
-    <div className="w-full h-screen top-20 bg-cover bg-no-repeat bg-[url('../../public/img/background3.png')]">
+    <div className="w-full h-screen font-sora top-20 bg-cover bg-no-repeat bg-[url('../../public/img/journal.jpg')]">
       {!edit ? (
-        <div>
-          <div className="max-w-[700px] m-auto p-4">
-            <div className="bg-[#eef2ff] bg-no-repeat p-2 mb-10 rounded-lg drop-shadow-md min-h-[800px]">
-              <div className="p-5 flex flex-col justify-between">
+        <div className="flex flex-col gap-4">
+          <div className="max-w-[600px] m-auto pt-8">
+            <div className="bg-[#eef2ff] p-2 flex flex-col justify-between rounded-lg drop-shadow-md min-h-[500px] md:h-[700px]">
+              <div className="px-5 py-3 flex flex-col justify-between">
                 <div className="flex flex-row gap-4 font-sora text-[15px]">
                   <div>{date}</div>
                   <div>{time}</div>
                 </div>
-                <div className="pt-5 font-nextDoor text-[28px]">
+                <div className="pt-5 font-nextDoor text-[25px]">
                   {singleEntry.content}
                 </div>
               </div>
             </div>
           </div>
-          <div className="grid place-content-center">
-            <div>
-              <button
-                onClick={handleEdit}
-                className="border p-4 ml-2 bg-red-400 hover:bg-red-300 rounded-lg"
-              >
-                Edit
-              </button>
-
-              <button
-                onClick={deleteEntry}
-                className="border p-4 ml-2 bg-red-400 hover:bg-red-300 rounded-lg"
-              >
-                Delete
-              </button>
-            </div>
+          <div className="max-w-[600px] m-auto flex flex-rows gap-3 justify-center">
+            <button
+              onClick={handleEdit}
+              className="border p-2 ml-2 bg-indigo-200 hover:bg-indigo-300 rounded-lg"
+              type="submit"
+            >
+              Edit
+            </button>
+            <button
+              onClick={deleteEntry}
+              className="border p-2 ml-2 bg-indigo-200 hover:bg-indigo-300 rounded-lg"
+              type="submit"
+            >
+              Delete
+            </button>
+          </div>
+          <div className="flex place-content-center">
             <Link to="/journal">
-              <button className="border p-4 ml-2 bg-purple-400 hover:bg-purple-300 rounded-lg">
+              <button className="border-orange-400 drop-shadow-lg px-3 py-2 ml-2 bg-orange-200 hover:bg-orange-300 rounded-lg">
                 Back to Journal
               </button>
             </Link>
           </div>
         </div>
       ) : (
-        <div className="max-w-[700px] m-auto p-4">
-          <div className="bg-[#eef2ff] p-2 mb-10 flex flex-col justify-between rounded-lg drop-shadow-md min-h-[800px]">
+        <div className="max-w-[600px] m-auto p-4">
+          <div className="bg-[#eef2ff] p-2 mb-10 flex flex-col justify-between rounded-lg drop-shadow-md min-h-[500px] md:h-[700px]">
+            {" "}
             <form className="flex flex-col" onSubmit={editEntry}>
               <textarea
                 rows="20"
