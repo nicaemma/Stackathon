@@ -70,23 +70,22 @@ const Journal = () => {
               journal entries here. Happy journaling!
             </div>
           </div>
+          <div className="place-content-centerflex">
+            <Link to="/journal/write">
+              <button className="border-orange-300 drop-shadow-sm p-3 ml-2 bg-orange-200 hover:bg-orange-300 rounded-lg">
+                Write New Entry
+              </button>
+            </Link>
+          </div>
           <div>
             <h1 className="font-sora text-[20px] text-center pt-3 pb-4">
               Past Entries
             </h1>
-            <div className="max-w-[960px] place-content-center m-auto p-3 grid md:grid-cols-3 gap-10">
+            <div className="max-w-[960px] place-content-center m-auto p-3 grid md:grid-cols-3 gap-6">
               {entries.map((entry, index) => (
                 <Entry key={index} entry={entry} />
               ))}
             </div>
-          </div>
-
-          <div className="place-content-center p-3 flex">
-            <Link to="/journal/write">
-              <button className="border p-3 ml-2 bg-purple-300 hover:bg-purple-400 rounded-lg">
-                Write New Entry
-              </button>
-            </Link>
           </div>
         </div>
       )}
