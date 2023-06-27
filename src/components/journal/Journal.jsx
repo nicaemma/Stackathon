@@ -2,16 +2,7 @@ import React, { useState, useEffect } from "react";
 import Entry from "./Entry";
 import { UserAuth } from "../../context/AuthContext";
 import { db } from "../../firebase";
-import {
-  collection,
-  getDocs,
-  addDoc,
-  updateDoc,
-  doc,
-  onSnapshot,
-  query,
-  deleteDoc,
-} from "firebase/firestore";
+import { collection, getDocs, onSnapshot, query } from "firebase/firestore";
 import { Link } from "react-router-dom";
 
 const Journal = () => {
@@ -52,7 +43,7 @@ const Journal = () => {
   }, []);
 
   return (
-    <div className="w-full h-screen font-sora top-20 bg-cover bg-no-repeat bg-[url('../../public/img/background3.png')]">
+    <div className="w-full h-screen font-sora top-20 bg-cover bg-no-repeat bg-[url('../../public/img/journal.jpg')]">
       {!entries ? (
         <div className="flex flex-col gap-8 pt-12">
           <div className="place-content-center p-3 flex">
@@ -72,7 +63,7 @@ const Journal = () => {
         <div className="max-w-[960px] m-auto p-3 flex flex-col gap-8 items-center">
           <div className="p-3 max-w-[500px] flex flex-col items-center">
             <h1 className="font-dawning text-[50px] pb-8">Journaling</h1>
-            <div className="py-5 px-3 rounded-lg text-center bg-cover bg-no-repeat bg-[url('../../public/img/journal.jpg')]">
+            <div className="py-5 px-3 rounded-lg text-center ">
               This page is designed to provide a space for self-reflection along
               your self care journey. Feel free to explore your emotions,
               aspirations, and experiences as you write, save, and re-read your
