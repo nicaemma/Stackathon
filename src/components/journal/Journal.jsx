@@ -47,7 +47,7 @@ const Journal = () => {
       {!entries ? (
         <div className="max-w-[960px] m-auto p-3 flex flex-col gap-8 items-center">
           <div className="p-3 max-w-[500px] flex flex-col items-center">
-            <h1 className="font-dawning text-[50px] pb-2">Journaling</h1>
+            <h1 className="font-stalemate text-[60px] pb-2">Journaling</h1>
             <div className="py-5 px-3 rounded-lg text-center ">
               This page is designed to empower you on your self care journey and
               provide a space for self-reflection. Take a moment to pause,
@@ -62,7 +62,7 @@ const Journal = () => {
       ) : (
         <div className="max-w-[960px] m-auto p-3 flex flex-col gap-8 items-center">
           <div className="p-3 max-w-[500px] flex flex-col items-center">
-            <h1 className="font-dawning text-[50px] pb-2">Journaling</h1>
+            <h1 className="font-stalemate text-[60px] pb-2">Journaling</h1>
             <div className="py-5 px-3 rounded-lg text-center ">
               This page is designed to provide a space for self-reflection along
               your self care journey. Feel free to explore your emotions,
