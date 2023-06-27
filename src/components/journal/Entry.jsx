@@ -12,15 +12,16 @@ const Entry = ({ entry }) => {
   const entryId = entry.id;
 
   return (
-    <div className="bg-[#eef2ff] flex flex-col justify-between p-2 mb-10 rounded-lg drop-shadow-md min-h-[170px] ">
-      <span>{entry.content}</span>
-      <div className="flex items-center justify-between">
-        <small>{formattedDate}</small>
-        <Link to={`/journal/${entryId}`}>
-          <button className="border p-4 ml-2 bg-purple-400 hover:bg-purple-300 rounded-lg">
-            View
-          </button>
-        </Link>
+    <div className="bg-[#eef2ff] font-sora p-2 mb-10 rounded-lg drop-shadow-md h-[120px] w-[220px]">
+      <div className="flex flex-col justify-between items-center">
+        <div className="pt-3">{formattedDate}</div>
+        <div className="pt-3">
+          <Link to={`/journal/${entryId}`}>
+            <button className="border p-2 ml-2 bg-indigo-200 hover:bg-indigo-300 rounded-lg">
+              View
+            </button>
+          </Link>
+        </div>
       </div>
     </div>
   );

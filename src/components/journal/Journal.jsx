@@ -52,17 +52,53 @@ const Journal = () => {
   }, []);
 
   return (
-    <div className="w-full h-screen top-20 bg-cover bg-no-repeat bg-[url('../../public/img/background3.png')]">
-      <div className="max-w-[960px] m-auto p-4 grid grid-flow-col auto-cols-[minmax(250,_1fr)] gap-4">
-        {entries.map((entry, index) => (
-          <Entry key={index} entry={entry} />
-        ))}
-      </div>
-      <Link to="/journal/write">
-        <button className="border p-4 ml-2 bg-purple-400 hover:bg-purple-300 rounded-lg">
-          Write New Entry
-        </button>
-      </Link>
+    <div className="w-full h-screen font-sora top-20 bg-cover bg-no-repeat bg-[url('../../public/img/background3.png')]">
+      {!entries ? (
+        <div className="flex flex-col gap-8 pt-12">
+          <div className="place-content-center p-3 flex">
+            <h1 className="">Journaling</h1>
+            <div className="bg-cover bg-no-repeat bg-[url('../../public/img/journal.jpg')]">
+              This page is designed to empower you on your self care journey and
+              provide a space for self-reflection. Take a moment to pause,
+              breathe, and let your thoughts flow onto the digital canvas. Feel
+              free to explore your emotions, aspirations, and experiences as you
+              write and save your journal entries here. May this journaling
+              space be a catalyst for self-discovery and personal growth. Happy
+              journaling!
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div className="max-w-[960px] m-auto p-3 flex flex-col gap-8 items-center">
+          <div className="p-3 max-w-[500px] flex flex-col items-center">
+            <h1 className="font-dawning text-[50px] pb-8">Journaling</h1>
+            <div className="py-5 px-3 rounded-lg text-center bg-cover bg-no-repeat bg-[url('../../public/img/journal.jpg')]">
+              This page is designed to provide a space for self-reflection along
+              your self care journey. Feel free to explore your emotions,
+              aspirations, and experiences as you write, save, and re-read your
+              journal entries here. Happy journaling!
+            </div>
+          </div>
+          <div>
+            <h1 className="font-sora text-[20px] text-center pt-8 pb-4">
+              Past Entries
+            </h1>
+            <div className="max-w-[960px] place-content-center m-auto p-3 grid grid-flow-col gap-10">
+              {entries.map((entry, index) => (
+                <Entry key={index} entry={entry} />
+              ))}
+            </div>
+          </div>
+
+          <div className="place-content-center p-3 flex">
+            <Link to="/journal/write">
+              <button className="border p-3 ml-2 bg-purple-400 hover:bg-purple-300 rounded-lg">
+                Write New Entry
+              </button>
+            </Link>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
