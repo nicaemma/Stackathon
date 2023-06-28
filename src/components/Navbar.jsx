@@ -91,7 +91,7 @@ const Navbar = () => {
               : "fixed left-[-100%]"
           }
         >
-          <h1 className="w-full text-3xl p-4 font-bold text-[#3730a3]">
+          <h1 className="w-full text-3xl p-4 font-bold text-slate-900 ">
             Mindful Matters
           </h1>
           <ul onClick={() => setNav(true)} className="pt-12 uppercase">
@@ -103,8 +103,11 @@ const Navbar = () => {
                 My Self Care
               </li>
             </Link>
+            <Link to="/journal">
+              <li className="p-4 border-b border-slate-400">Journal</li>
+            </Link>
             <Link to="/memory">
-              <li className="p-4 border-b border-slate-400">Activities</li>
+              <li className="p-4 border-b border-slate-400">Memory</li>
             </Link>
             {!currentUser ? (
               <Link to="/signup">
