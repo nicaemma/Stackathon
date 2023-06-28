@@ -72,30 +72,36 @@ const MemoryGame = () => {
   }, []);
 
   return (
-    <div className="font-fira w-full h-full bg-cover bg-no-repeat bg-[url('https://img.freepik.com/premium-vector/dark-green--watercolor-texture-background_65186-958.jpg?w=2000')]">
-      <div className="p-20 max-w-[800px] m-auto flex flex-col items-center">
-        <h1 className="text-white text-2xl text-center">Memory Game</h1>
-        <div className="max-w-[40%] w-fit h-fit m-5">
-          <button
-            onClick={shuffleCards}
-            className="justify-center border border-white rounded-md p-2 text-white bg-[#3730a3] hover:bg-[#6366f1] cursor-pointer"
-          >
-            New Game
-          </button>
+    <div className="font-sora w-full min-h-screen flex flex-col top-20 bg-cover bg-no-repeat bg-[url('https://img.freepik.com/premium-vector/dark-green--watercolor-texture-background_65186-958.jpg?w=2000')]">
+      <div className="w-full h-full top-20 bg-cover bg-white bg-opacity-30">
+        <div className="max-w-[70vh] m-auto p-3 flex flex-col gap-8 items-center">
+          <div className="p-3 flex flex-col items-center">
+            <h1 className="text-white text-[25px] p-3">Memory Game</h1>
+            <div className="w-fit h-fit m-5">
+              <button
+                onClick={shuffleCards}
+                className="justify-center border border-white rounded-md p-2 text-white bg-[#3730a3] hover:bg-[#6366f1] cursor-pointer"
+              >
+                New Game
+              </button>
+            </div>
+          </div>
+          <div className="flex-grow grid grid-cols-3 gap-4">
+            {cards.map((card) => (
+              <SingleCard
+                key={card.id}
+                card={card}
+                handleChoice={handleChoice}
+                disabled={disabled}
+                flipped={
+                  card === choiceOne || card === choiceTwo || card.matched
+                }
+              />
+            ))}
+          </div>
+          <p className="mt-5 text-white">Turns: {turns}</p>
         </div>
-        <div className="grid grid-cols-3 gap-4">
-          {cards.map((card) => (
-            <SingleCard
-              key={card.id}
-              card={card}
-              handleChoice={handleChoice}
-              disabled={disabled}
-              flipped={card === choiceOne || card === choiceTwo || card.matched}
-            />
-          ))}
-        </div>
-        <p className="mt-5 text-white">Turns: {turns}</p>
-      </div>
+      </div>{" "}
     </div>
   );
 };
