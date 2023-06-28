@@ -72,8 +72,8 @@ const Navbar = () => {
             </div>
           </li>
           {!currentUser ? (
-            <Link to="/signup">
-              <li className="p-8 whitespace-nowrap">Sign Up</li>
+            <Link to="/signin">
+              <li className="p-8 whitespace-nowrap">Sign In</li>
             </Link>
           ) : (
             <Link to="/dashboard">

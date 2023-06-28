@@ -113,10 +113,10 @@ const Homepage = () => {
           {!currentUser && (
             <div className="mt-5 flex flex-col justify-center items-center text-xl">
               <Link
-                to="/signup"
-                className="bg-[#60a5fa] px-6 py-3.5 rounded-xl text-white ease-in duration-200 hover:bg-pale-pink"
+                to="/signin"
+                className="bg-blue-500 hover:bg-blue-400 p-3 rounded-xl text-white ease-in duration-200 hover:bg-pale-pink"
               >
-                Sign Up
+                Sign In / Sign Up
               </Link>
             </div>
           )}
