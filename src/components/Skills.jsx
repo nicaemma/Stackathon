@@ -84,13 +84,13 @@ const Skills = () => {
 
   return (
     <div className="font-sora w-full h-screen top-20 bg-cover bg-no-repeat bg-[url('/img/background5.png')]">
-      <div className="w-full h-screen top-20 bg-cover bg-white bg-opacity-50">
+      <div className="w-full h-screen top-20 bg-cover bg-white bg-opacity-30">
         <div className="max-w-[960px] m-auto p-3 flex flex-col gap-8 items-center">
-          <div className="p-3 max-w-[550px] flex flex-col items-center">
+          <div className="p-3 max-w-[550px] flex flex-col gap-2 items-center">
             <h3 className="text-2xl font-bold text-center text-gray-800 p-3">
               My Stress Relievers
             </h3>
-            <div className="py-5 px-3 rounded-lg text-center bg-indigo-200">
+            <div className="py-4 px-3 rounded-lg text-center bg-indigo-200">
               <div>
                 Coping skills help us navigate and overcome stressful moments
                 with increasing ease. Use this page to add stress relievers to
