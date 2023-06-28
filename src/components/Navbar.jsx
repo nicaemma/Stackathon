@@ -23,7 +23,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className=" bg-white border-b-slate-200 border-b-4 font-sora">
+    <div className=" bg-white border-b-slate-300 border-b font-sora">
       <div className="flex justify-between items-center h-20 max-w-[1240px] mx-auto px-4 text-slate-900 font-bold">
         <h1 className={!nav ? "hidden" : "w-full text-3xl font-bold"}>
           Mindful Matters
@@ -38,7 +38,7 @@ const Navbar = () => {
           <li className="relative p-8">
             <button
               onClick={handleActivities}
-              className=" overflow-hidden focus:border-white text-white bg-[#c7d2fe] inline-flex items-center"
+              className=" overflow-hidden focus:border-slate-300 text-slate-900 bg-white inline-flex items-center"
               type="button"
             >
               Activities{" "}
@@ -49,18 +49,18 @@ const Navbar = () => {
             <div
               className={
                 activities
-                  ? "absolute mt-2 py-2 bg-[#c7d2fe] rounded-lg z-[99]"
+                  ? "absolute border-slate-200 mt-2 py-2 bg-white rounded-lg z-[99]"
                   : "hidden"
               }
             >
               <ul onClick={() => setActivities(false)}>
                 <Link to="/memory">
-                  <li className="block px-4 py-2 hover:bg-gray-500">
+                  <li className="block px-4 py-2 hover:bg-slate-300">
                     Memory Game
                   </li>
                 </Link>
                 <Link to="/journal">
-                  <li className="block px-4 py-2 hover:bg-gray-500">
+                  <li className="block px-4 py-2 hover:bg-slate-300">
                     Journaling
                   </li>
                 </Link>
@@ -87,7 +87,7 @@ const Navbar = () => {
         <div
           className={
             !nav
-              ? "fixed left-0 top-0 w-[30%] h-full border-r border-r-gray-900 bg-[#c7d2fe] md:hidden z-[90]"
+              ? "fixed left-0 top-0 w-[30%] h-full border-r border-r-slate-400 bg-white md:hidden z-[90]"
               : "fixed left-[-100%]"
           }
         >
@@ -96,23 +96,23 @@ const Navbar = () => {
           </h1>
           <ul onClick={() => setNav(true)} className="pt-12 uppercase">
             <Link to="/home">
-              <li className="p-4 border-b border-gray-400">Home</li>
+              <li className="p-4 border-b border-slate-400">Home</li>
             </Link>
             <Link to="/skills">
-              <li className="p-4 border-b border-gray-400 whitespace-nowrap">
+              <li className="p-4 border-b border-slate-400 whitespace-nowrap">
                 My Self Care
               </li>
             </Link>
             <Link to="/memory">
-              <li className="p-4 border-b border-gray-400">Activities</li>
+              <li className="p-4 border-b border-slate-400">Activities</li>
             </Link>
             {!currentUser ? (
               <Link to="/signup">
-                <li className="p-4 border-b border-gray-400">Sign Up</li>
+                <li className="p-4 border-b border-slate-400">Sign Up</li>
               </Link>
             ) : (
               <Link to="/dashboard">
-                <li className="p-4 border-b border-gray-400">Account</li>
+                <li className="p-4 border-b border-slate-400">Account</li>
               </Link>
             )}
           </ul>
