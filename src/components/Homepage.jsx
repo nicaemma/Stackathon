@@ -55,7 +55,7 @@ const Homepage = () => {
 
   return (
     <div>
-      <div className="w-full h-screen font-fira top-20 bg-cover bg-no-repeat bg-[url('../../public/img/background6.png')]">
+      <div className="w-full h-screen font-fira top-20 bg-cover bg-no-repeat bg-[url('/img/background6.png')]">
         <div className="max-w-[600px] m-auto h-full w-full flex flex-col items-center">
           <div className="flex flex-row mt-20 justify-center bg-[#fff7ed] opacity-[90%] rounded-lg">
             <div className="mb-10 ml-4 ">
