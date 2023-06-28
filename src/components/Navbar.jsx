@@ -23,13 +23,9 @@ const Navbar = () => {
   };
 
   return (
-    <div className=" bg-[#c7d2fe] font-sora">
-      <div className="flex justify-between items-center h-24 max-w-[1240px] mx-auto px-4 text-white">
-        <h1
-          className={
-            !nav ? "hidden" : "w-full text-3xl font-bold text-[#3730a3]"
-          }
-        >
+    <div className=" bg-white border-b-slate-200 border-b-4 font-sora">
+      <div className="flex justify-between items-center h-20 max-w-[1240px] mx-auto px-4 text-gray-800 font-bold">
+        <h1 className={!nav ? "hidden" : "w-full text-3xl font-bold"}>
           Mindful Matters
         </h1>
         <ul className="hidden md:flex">
