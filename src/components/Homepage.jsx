@@ -55,11 +55,12 @@ const Homepage = () => {
 
   return (
     <div>
-      <div className="w-full h-screen font-fira top-20 bg-cover bg-no-repeat bg-[url('/img/background6.png')]">
-        <div className="max-w-[600px] m-auto h-full w-full flex flex-col items-center">
-          <div className="flex flex-row mt-20 justify-center bg-[#fff7ed] opacity-[90%] rounded-lg">
+      <div className="w-full h-screen font-fira font-bold top-20 bg-cover bg-no-repeat bg-[url('/img/background6.png')]">
+        <div className="w-full h-screen top-20 bg-cover bg-white bg-opacity-30">
+          <div className="max-w-[600px] m-auto h-full w-full flex flex-col items-center">
+            {/* <div className="flex flex-row mt-20 justify-center bg-[#fff7ed] opacity-[90%] rounded-lg"> */}
             <div className="mb-10 ml-4 ">
-              <div className="pt-20 px-6 pb-6 flex flex-col flex-wrap gap-4 justify-center items-center text-center">
+              <div className="pt-20 px-6 pb-3 flex flex-col flex-wrap gap-4 justify-center items-center text-center">
                 {!currentUser ? (
                   <p className="text-2xl sm:text-4xl">
                     Welcome to Mindful Moments
@@ -71,7 +72,7 @@ const Homepage = () => {
                 )}
               </div>
 
-              <div className="pt-6 px-6 pb-6 justify-center items-center flex flex-wrap font-rubik sm:text-2xl text-xl text-center">
+              <div className="pt-6 px-6 justify-center items-center flex flex-wrap font-rubik sm:text-2xl text-xl text-center">
                 {!currentUser ? (
                   <p>
                     Guiding your self care path & cultivating awareness for your
@@ -109,17 +110,18 @@ const Homepage = () => {
               </div>
               {/* </div> */}
             </div>
+            {/* </div> */}
+            {!currentUser && (
+              <div className="pt-2 flex flex-col justify-center items-center text-xl">
+                <Link
+                  to="/signin"
+                  className="bg-indigo-400 hover:bg-indigo-600 p-3 rounded-xl text-white ease-in duration-200 hover:bg-pale-pink"
+                >
+                  Sign In / Sign Up
+                </Link>
+              </div>
+            )}
           </div>
-          {!currentUser && (
-            <div className="mt-5 flex flex-col justify-center items-center text-xl">
-              <Link
-                to="/signin"
-                className="bg-blue-500 hover:bg-blue-400 p-3 rounded-xl text-white ease-in duration-200 hover:bg-pale-pink"
-              >
-                Sign In / Sign Up
-              </Link>
-            </div>
-          )}
         </div>
       </div>
     </div>
