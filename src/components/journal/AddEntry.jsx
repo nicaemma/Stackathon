@@ -62,7 +62,7 @@ const AddEntry = () => {
   };
 
   return (
-    <div className="w-full h-screen font-sora top-20 bg-cover bg-no-repeat bg-[url('/img/journal.jpg')]">
+    <div className="w-full h-full font-sora top-20 bg-cover bg-no-repeat bg-[url('/img/journal.jpg')]">
       <div className="max-w-[650px] m-auto p-4">
         <div className="bg-[#eef2ff] p-2 mb-10 flex flex-col justify-between rounded-lg drop-shadow-md md:h-[700px] sm:h-[500px]">
           {" "}

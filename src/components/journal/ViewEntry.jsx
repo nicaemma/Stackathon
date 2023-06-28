@@ -83,8 +83,8 @@ const ViewEntry = () => {
     <div className="w-full h-full font-sora top-20 bg-cover bg-no-repeat bg-[url('/img/journal.jpg')]">
       {!edit ? (
         <div className="flex flex-col gap-4">
-          <div className="max-w-[700px] m-auto pt-8">
-            <div className="bg-[#eef2ff] p-2 flex flex-col justify-between rounded-lg drop-shadow-md min-h-[500px] md:h-[700px]">
+          <div className=" m-auto pt-6">
+            <div className="bg-[#eef2ff] min-h-[65vh] max-h-[1280px] max-w-[800px] min-w-[400px] p-2 flex flex-col justify-between rounded-lg drop-shadow-md">
               <div className="px-5 py-3 flex flex-col justify-between">
                 <div className="flex flex-row gap-4 font-sora text-[15px]">
                   <div>{date}</div>
@@ -112,7 +112,7 @@ const ViewEntry = () => {
               Delete
             </button>
           </div>
-          <div className="flex place-content-center">
+          <div className="flex place-content-center pb-8">
             <Link to="/journal">
               <button className="border-orange-400 drop-shadow-lg px-3 py-2 ml-2 bg-orange-200 hover:bg-orange-300 rounded-lg">
                 Back to Journal
