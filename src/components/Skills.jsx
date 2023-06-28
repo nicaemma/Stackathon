@@ -83,7 +83,7 @@ const Skills = () => {
   };
 
   return (
-    <div className="w-full h-screen top-20 bg-cover bg-no-repeat bg-[url('../../public/img/background5.png')]">
+    <div className="w-full h-screen top-20 bg-cover bg-no-repeat bg-[url('/img/background5.png')]">
       <div className="bg-slate-100 max-w-[500px] w-full m-auto rounded-md shadow-xl p-4">
         <h3 className="text-2xl font-bold text-center text-gray-800 p-2">
           My Stress Relievers

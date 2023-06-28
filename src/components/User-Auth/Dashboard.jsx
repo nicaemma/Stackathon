@@ -19,7 +19,7 @@ const Dashboard = () => {
   }
 
   return (
-    <div className="font-fira w-full h-screen bg-cover bg-no-repeat bg-[url('../../public/img/background4.png')]">
+    <div className="font-fira w-full h-screen bg-cover bg-no-repeat bg-[url('/img/background4.png')]">
       <div className="w-full h-screen absolute bg-white/30">
         <div className="flex flex-col place-content-center">
           <div className="p-5 font-bold py-2 text-center">

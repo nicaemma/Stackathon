@@ -80,7 +80,7 @@ const ViewEntry = () => {
   }, []);
 
   return (
-    <div className="w-full h-full font-sora top-20 bg-cover bg-no-repeat bg-[url('../../public/img/journal.jpg')]">
+    <div className="w-full h-full font-sora top-20 bg-cover bg-no-repeat bg-[url('/img/journal.jpg')]">
       {!edit ? (
         <div className="flex flex-col gap-4">
           <div className="max-w-[700px] m-auto pt-8">
