@@ -7,51 +7,51 @@ import axios from "axios";
 const Homepage = () => {
   const { currentUser } = UserAuth();
 
-  const clientId = import.meta.env.VITE_CLIENT_ID;
-  const redirectURI = import.meta.env.VITE_REDIRECT_URI;
-  const authEndpoint = import.meta.env.VITE_AUTH_ENDPOINT;
-  const responseType = import.meta.env.VITE_RESPONSE_TYPE;
+  // const clientId = import.meta.env.VITE_CLIENT_ID;
+  // const redirectURI = import.meta.env.VITE_REDIRECT_URI;
+  // const authEndpoint = import.meta.env.VITE_AUTH_ENDPOINT;
+  // const responseType = import.meta.env.VITE_RESPONSE_TYPE;
 
-  const [token, setToken] = useState("");
+  // const [token, setToken] = useState("");
 
-  const [searchKey, setSearchKey] = useState("");
+  // const [searchKey, setSearchKey] = useState("");
 
-  const logoutSpotify = () => {
-    setToken("");
-    window.localStorage.removeItem("token");
-  };
+  // const logoutSpotify = () => {
+  //   setToken("");
+  //   window.localStorage.removeItem("token");
+  // };
 
-  const searchArtists = async (e) => {
-    console.log("token-->", token);
-    console.log("bearer-->", `Bearer ${token}`);
+  // const searchArtists = async (e) => {
+  //   console.log("token-->", token);
+  //   console.log("bearer-->", `Bearer ${token}`);
 
-    e.preventDefault();
-    const { data } = await axios.get("https://api.spotify.com/v1/search", {
-      header: {
-        Authorization: "Bearer" + token,
-      },
-      params: {
-        q: searchKey,
-        type: "artist",
-      },
-    });
-    console.log("data-->", data);
-  };
+  //   e.preventDefault();
+  //   const { data } = await axios.get("https://api.spotify.com/v1/search", {
+  //     header: {
+  //       Authorization: "Bearer" + token,
+  //     },
+  //     params: {
+  //       q: searchKey,
+  //       type: "artist",
+  //     },
+  //   });
+  //   console.log("data-->", data);
+  // };
 
-  useEffect(() => {
-    const hash = window.location.hash;
-    let token = window.localStorage.getItem("token");
+  // useEffect(() => {
+  //   const hash = window.location.hash;
+  //   let token = window.localStorage.getItem("token");
 
-    if (!token && hash) {
-      token = hash
-        .substring(1)
-        .split("&")
-        .find((elem) => elem.startsWith("access_token"))
-        .split("-")[1];
-      window.localStorage.setItem("token", token);
-    }
-    setToken(token);
-  }, []);
+  //   if (!token && hash) {
+  //     token = hash
+  //       .substring(1)
+  //       .split("&")
+  //       .find((elem) => elem.startsWith("access_token"))
+  //       .split("-")[1];
+  //     window.localStorage.setItem("token", token);
+  //   }
+  //   setToken(token);
+  // }, []);
 
   return (
     <div>
@@ -83,7 +83,7 @@ const Homepage = () => {
                       Continue your self care tracker & cultivating awareness
                       for your wellbeing
                     </p>
-                    {!token ? (
+                    {/* {!token ? (
                       <a
                         href={`${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectURI}&response_type=${responseType}`}
                       >
@@ -93,9 +93,9 @@ const Homepage = () => {
                       <button onClick={logoutSpotify}>
                         Log out of Spotify
                       </button>
-                    )}
+                    )} */}
 
-                    {token && (
+                    {/* {token && (
                       <form onSubmit={searchArtists}>
                         <input
                           type="text"
@@ -103,7 +103,7 @@ const Homepage = () => {
                         />
                         <button type={"submit"}>Search</button>
                       </form>
-                    )}
+                    )} */}
                   </div>
                 )}
               </div>
