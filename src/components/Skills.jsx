@@ -14,12 +14,14 @@ import {
   query,
   deleteDoc,
 } from "firebase/firestore";
+import { useNavigate } from "react-router-dom";
 
 const Skills = () => {
   const [skills, setSkills] = useState([]);
   const [newSkill, setNewSkill] = useState("");
 
   const { currentUser } = UserAuth();
+  const navigate = useNavigate();
 
   // Read skill from firebase --> changed to responsive to changes real-time
   const skillsCollectionRef = collection(db, "skills");
@@ -98,7 +100,10 @@ const Skills = () => {
               </div>
             </div>
           </div>
-          <form className="flex justify-between" onSubmit={createSkill}>
+          <form
+            className={!currentUser ? "hidden" : "flex justify-between"}
+            onSubmit={createSkill}
+          >
             <input
               value={newSkill}
               className="border-[1px] border-gray-400 p-2 w-full text-xl rounded-md"
@@ -114,18 +119,30 @@ const Skills = () => {
             </button>
           </form>
         </div>
-        <div className="bg-slate-100 max-w-[400px] w-full m-auto rounded-md shadow-xl p-4">
-          <ul>
-            {skills.map((skill, index) => (
-              <Skill
-                key={index}
-                skill={skill}
-                toggleComplete={toggleComplete}
-                deleteSkill={deleteSkill}
-              />
-            ))}
-          </ul>
-        </div>
+        {!currentUser ? (
+          <div className="bg-slate-100 max-w-[400px] w-full m-auto text-center rounded-md shadow-xl p-4">
+            <span
+              onClick={() => navigate("/signin")}
+              className="font-bold text-blue-900 cursor-pointer hover:bg-slate-200 py-1 rounded-md"
+            >
+              Sign in
+            </span>{" "}
+            to start building your personal list of skills!
+          </div>
+        ) : (
+          <div className="bg-slate-100 max-w-[400px] w-full m-auto rounded-md shadow-xl p-4">
+            <ul>
+              {skills.map((skill, index) => (
+                <Skill
+                  key={index}
+                  skill={skill}
+                  toggleComplete={toggleComplete}
+                  deleteSkill={deleteSkill}
+                />
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
     </div>
   );
