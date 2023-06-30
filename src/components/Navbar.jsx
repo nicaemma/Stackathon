@@ -95,7 +95,7 @@ const Navbar = () => {
             Mindful Matters
           </h1>
           <ul onClick={() => setNav(true)} className="pt-12 uppercase">
-            <Link to="/home">
+            <Link to="/">
               <li className="p-4 border-b border-slate-400">Home</li>
             </Link>
             <Link to="/skills">
