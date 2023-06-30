@@ -14,7 +14,7 @@ import {
   query,
   deleteDoc,
 } from "firebase/firestore";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const Skills = () => {
   const [skills, setSkills] = useState([]);
@@ -120,14 +120,12 @@ const Skills = () => {
           </form>
         </div>
         {!currentUser ? (
-          <div className="bg-slate-100 max-w-[400px] w-full m-auto text-center rounded-md shadow-xl p-4">
-            <span
-              onClick={() => navigate("/signin")}
-              className="font-extrabold text-blue-900 cursor-pointer hover:bg-slate-200 py-1 rounded-md"
-            >
-              Sign in
-            </span>{" "}
-            to start building your personal list of skills!
+          <div>
+            <Link to="/signin">
+              <div className="bg-slate-100 max-w-[200px] hover:bg-slate-200 w-full m-auto text-center rounded-md shadow-xl p-4">
+                <span className="font-extrabold">Sign in</span> to start!
+              </div>
+            </Link>
           </div>
         ) : (
           <div className="bg-slate-100 max-w-[400px] w-full m-auto rounded-md shadow-xl p-4">
