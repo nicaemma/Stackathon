@@ -43,7 +43,7 @@ const Journal = () => {
   }, []);
 
   return (
-    <div className="w-full h-full font-sora top-20 bg-cover bg-no-repeat bg-[url('/img/journal.jpg')]">
+    <div className="w-full h-[100vh] font-sora top-20 bg-cover bg-no-repeat bg-[url('/img/journal.jpg')]">
       {!entries ? (
         <div className="max-w-[960px] m-auto p-3 flex flex-col gap-8 items-center">
           <div className="p-3 max-w-[500px] flex flex-col items-center">
