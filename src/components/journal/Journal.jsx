@@ -45,7 +45,7 @@ const Journal = () => {
   return (
     <div className="w-full h-[100vh] font-sora top-20 bg-cover bg-no-repeat bg-[url('/img/journal.jpg')]">
       <div className="w-full h-full top-20 bg-cover bg-white bg-opacity-30">
-        {!entries ? (
+        {entries.length === 0 ? (
           <div className="max-w-[960px] m-auto p-3 flex flex-col gap-8 items-center">
             <div className="p-3 max-w-[500px] flex flex-col items-center">
               <h1 className="font-stalemate text-[60px] pb-2">Journaling</h1>
@@ -54,10 +54,23 @@ const Journal = () => {
                 and provide a space for self-reflection. Take a moment to pause,
                 breathe, and let your thoughts flow onto the digital canvas.
                 Feel free to explore your emotions, aspirations, and experiences
-                as you write and save your journal entries here. May this
-                journaling space be a catalyst for self-discovery and personal
-                growth. Happy journaling!
+                as you write and save your journal entries here. Happy
+                journaling!
               </div>
+            </div>
+            <div className="place-content-centerflex">
+              {!currentUser ? (
+                <div>
+                  <Link to="/signin">
+                    <div className="bg-slate-100 max-w-[400px] hover:bg-slate-200 w-full m-auto text-center rounded-md shadow-xl p-4">
+                      <span className="font-extrabold">Sign in</span> to start
+                      your journal!
+                    </div>
+                  </Link>
+                </div>
+              ) : (
+                <div></div>
+              )}
             </div>
           </div>
         ) : (
