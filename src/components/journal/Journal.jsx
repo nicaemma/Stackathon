@@ -44,51 +44,53 @@ const Journal = () => {
 
   return (
     <div className="w-full h-[100vh] font-sora top-20 bg-cover bg-no-repeat bg-[url('/img/journal.jpg')]">
-      {!entries ? (
-        <div className="max-w-[960px] m-auto p-3 flex flex-col gap-8 items-center">
-          <div className="p-3 max-w-[500px] flex flex-col items-center">
-            <h1 className="font-stalemate text-[60px] pb-2">Journaling</h1>
-            <div className="py-5 px-3 rounded-lg text-center bg-orange-100">
-              This page is designed to empower you on your self care journey and
-              provide a space for self-reflection. Take a moment to pause,
-              breathe, and let your thoughts flow onto the digital canvas. Feel
-              free to explore your emotions, aspirations, and experiences as you
-              write and save your journal entries here. May this journaling
-              space be a catalyst for self-discovery and personal growth. Happy
-              journaling!
+      <div className="w-full h-full top-20 bg-cover bg-white bg-opacity-30">
+        {!entries ? (
+          <div className="max-w-[960px] m-auto p-3 flex flex-col gap-8 items-center">
+            <div className="p-3 max-w-[500px] flex flex-col items-center">
+              <h1 className="font-stalemate text-[60px] pb-2">Journaling</h1>
+              <div className="py-5 px-3 rounded-lg text-center bg-orange-100">
+                This page is designed to empower you on your self care journey
+                and provide a space for self-reflection. Take a moment to pause,
+                breathe, and let your thoughts flow onto the digital canvas.
+                Feel free to explore your emotions, aspirations, and experiences
+                as you write and save your journal entries here. May this
+                journaling space be a catalyst for self-discovery and personal
+                growth. Happy journaling!
+              </div>
             </div>
           </div>
-        </div>
-      ) : (
-        <div className="max-w-[960px] m-auto pb-8 px-4 flex flex-col gap-8 items-center">
-          <div className="p-3 w-[500px] flex flex-col items-center">
-            <h1 className="font-stalemate text-[60px] pb-2">Journaling</h1>
-            <div className="py-5 px-3 rounded-lg text-center bg-orange-100">
-              This page is designed to provide a space for self-reflection along
-              your self care journey. Feel free to explore your emotions,
-              aspirations, and experiences as you write, save, and re-read your
-              journal entries here. Happy journaling!
+        ) : (
+          <div className="max-w-[960px] m-auto pb-8 px-4 flex flex-col gap-8 items-center">
+            <div className="p-3 w-[500px] flex flex-col items-center">
+              <h1 className="font-stalemate text-[60px] pb-2">Journaling</h1>
+              <div className="py-5 px-3 rounded-lg text-center bg-orange-100">
+                This page is designed to provide a space for self-reflection
+                along your self care journey. Feel free to explore your
+                emotions, aspirations, and experiences as you write, save, and
+                re-read your journal entries here. Happy journaling!
+              </div>
+            </div>
+            <div className="place-content-centerflex">
+              <Link to="/journal/write">
+                <button className="border-orange-300 drop-shadow-sm p-3 ml-2 bg-orange-200 hover:bg-orange-300 rounded-lg">
+                  Write New Entry
+                </button>
+              </Link>
+            </div>
+            <div>
+              <h1 className="font-sora text-[20px] text-center pt-3 pb-4">
+                Past Entries
+              </h1>
+              <div className="max-w-[960px] place-content-center m-auto p-3 grid md:grid-cols-3 gap-6">
+                {entries.map((entry, index) => (
+                  <Entry key={index} entry={entry} />
+                ))}
+              </div>
             </div>
           </div>
-          <div className="place-content-centerflex">
-            <Link to="/journal/write">
-              <button className="border-orange-300 drop-shadow-sm p-3 ml-2 bg-orange-200 hover:bg-orange-300 rounded-lg">
-                Write New Entry
-              </button>
-            </Link>
-          </div>
-          <div>
-            <h1 className="font-sora text-[20px] text-center pt-3 pb-4">
-              Past Entries
-            </h1>
-            <div className="max-w-[960px] place-content-center m-auto p-3 grid md:grid-cols-3 gap-6">
-              {entries.map((entry, index) => (
-                <Entry key={index} entry={entry} />
-              ))}
-            </div>
-          </div>
-        </div>
-      )}
+        )}
+      </div>{" "}
     </div>
   );
 };
