@@ -12,7 +12,7 @@ const Dashboard = () => {
     setError("");
     try {
       await logOut();
-      navigate("/home");
+      navigate("/");
     } catch {
       setError("Failed to log out");
     }
