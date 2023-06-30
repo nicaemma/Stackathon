@@ -123,7 +123,7 @@ const Skills = () => {
           <div className="bg-slate-100 max-w-[400px] w-full m-auto text-center rounded-md shadow-xl p-4">
             <span
               onClick={() => navigate("/signin")}
-              className="font-bold text-blue-900 cursor-pointer hover:bg-slate-200 py-1 rounded-md"
+              className="font-extrabold text-blue-900 cursor-pointer hover:bg-slate-200 py-1 rounded-md"
             >
               Sign in
             </span>{" "}
