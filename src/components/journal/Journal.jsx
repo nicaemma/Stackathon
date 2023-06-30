@@ -43,19 +43,20 @@ const Journal = () => {
   }, []);
 
   return (
-    <div className="w-full h-[100vh] font-sora top-20 bg-cover bg-no-repeat bg-[url('/img/journal.jpg')]">
-      <div className="w-full h-full top-20 bg-cover bg-white bg-opacity-30">
+    <div className="w-full min-h-screen font-sora top-20 bg-cover bg-no-repeat bg-[url('/img/journal.jpg')]">
+      <div className="w-full min-h-screen top-20 bg-cover bg-white bg-opacity-30">
         {entries.length === 0 ? (
           <div className="max-w-[960px] m-auto p-3 flex flex-col gap-8 items-center">
             <div className="p-3 max-w-[500px] flex flex-col items-center">
               <h1 className="font-stalemate text-[60px] pb-2">Journaling</h1>
               <div className="py-5 px-3 rounded-lg text-center bg-orange-100">
-                This page is designed to empower you on your self care journey
-                and provide a space for self-reflection. Take a moment to pause,
-                breathe, and let your thoughts flow onto the digital canvas.
-                Feel free to explore your emotions, aspirations, and experiences
-                as you write and save your journal entries here. Happy
-                journaling!
+                <div>
+                  Feel free to explore your emotions, aspirations, and
+                  experiences on this page of self reflection. Take a moment to
+                  pause, breathe, and let your thoughts flow onto the digital
+                  canvas.
+                </div>
+                <div>Happy journaling!</div>{" "}
               </div>
             </div>
             <div className="place-content-centerflex">
