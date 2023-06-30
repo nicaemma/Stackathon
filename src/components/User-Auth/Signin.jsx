@@ -25,33 +25,45 @@ const Signin = () => {
   }
 
   return (
-    <div className="max-w-[600px] font-fira mx-auto my-16 p-4">
-      <div>
-        <h1 className="text-2xl font-bold py-2">Sign into your account</h1>
-        <p className="py-2">
-          {" "}
-          Don't have an account?{" "}
-          <Link to="/signup" className="underline">
-            Sign up.
-          </Link>
-        </p>
-      </div>
-      {error && <div>{error}</div>}
-      <form onSubmit={handleSubmit}>
-        <div className="flex flex-col py-2">
-          <label className="py-2 font-medium">Email Address</label>
-          <input ref={emailRef} className="border p-3" type="email" />
+    <div className="w-full h-[100vh] font-fira bg-cover bg-no-repeat bg-[url('/img/background3.png')]">
+      <div className="w-full h-screen bg-cover bg-white bg-opacity-30">
+        <div className="pt-12">
+          <div className="max-w-[500px] mx-auto bg-white p-8">
+            <div>
+              <h1 className="text-2xl font-bold py-2">
+                Sign into your account
+              </h1>
+              <p className="py-2">
+                {" "}
+                Don't have an account?{" "}
+                <Link to="/signup" className="underline">
+                  Sign up.
+                </Link>
+              </p>
+            </div>
+            {error && <div>{error}</div>}
+            <form onSubmit={handleSubmit}>
+              <div className="flex flex-col py-2">
+                <label className="py-2 font-medium">Email Address</label>
+                <input ref={emailRef} className="border p-3" type="email" />
+              </div>
+              <div className="flex flex-col py-2">
+                <label className="py-2 font-medium">Password</label>
+                <input
+                  ref={passwordRef}
+                  className="border p-3"
+                  type="password"
+                />
+              </div>
+              <button className="border border-blue-500 bg-blue-600 hover:bg-blue-500 w-full p-4 my-2 text-white">
+                Sign In
+              </button>
+            </form>
+            <div className="w-100 text-center mt-3">
+              <Link to="/forgot-password">Forgot Password?</Link>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col py-2">
-          <label className="py-2 font-medium">Password</label>
-          <input ref={passwordRef} className="border p-3" type="password" />
-        </div>
-        <button className="border border-blue-500 bg-blue-600 hover:bg-blue-500 w-full p-4 my-2 text-white">
-          Sign In
-        </button>
-      </form>
-      <div className="w-100 text-center mt-3">
-        <Link to="/forgot-password">Forgot Password?</Link>
       </div>
     </div>
   );
