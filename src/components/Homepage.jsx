@@ -63,7 +63,7 @@ const Homepage = () => {
               <div className="pt-20 px-6 pb-3 flex flex-col flex-wrap gap-4 justify-center items-center text-center">
                 {!currentUser ? (
                   <p className="text-2xl sm:text-4xl">
-                    Welcome to Mindful Moments
+                    Welcome to Mindful Matters
                   </p>
                 ) : (
                   <p className="text-2xl sm:text-4xl">
