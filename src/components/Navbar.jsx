@@ -87,7 +87,7 @@ const Navbar = () => {
         <div
           className={
             !nav
-              ? "fixed left-0 top-0 w-[30%] h-full border-r border-r-slate-400 bg-white md:hidden z-[90]"
+              ? "fixed left-0 top-0 w-[40%] h-full border-r border-r-slate-400 bg-white md:hidden z-[90]"
               : "fixed left-[-100%]"
           }
         >
