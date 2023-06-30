@@ -36,12 +36,12 @@ const Signup = () => {
     }
   };
   return (
-    <div className="w-full h-[100vh] font-fira bg-cover bg-no-repeat bg-[url('/img/background3.png')]">
-      <div className="w-full h-screen bg-cover bg-white bg-opacity-30">
-        <div className="pt-12">
+    <div className="w-full h-max font-fira bg-cover bg-no-repeat bg-[url('/img/background3.png')]">
+      <div className="w-full h-max bg-cover bg-white bg-opacity-30">
+        <div className="py-10">
           <div className="max-w-[500px] rounded-sm mx-auto bg-white p-8">
             <div>
-              <h1 className="text-2xl font-bold py-2">
+              <h1 className="text-2xl font-bold pb-2">
                 Sign up for an account
               </h1>
               <p className="py-2">
