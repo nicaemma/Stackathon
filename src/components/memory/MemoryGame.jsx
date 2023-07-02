@@ -74,10 +74,10 @@ const MemoryGame = () => {
   return (
     <div className="font-sora w-full min-h-screen flex flex-col top-20 bg-cover bg-no-repeat bg-[url('https://img.freepik.com/premium-vector/dark-green--watercolor-texture-background_65186-958.jpg?w=2000')]">
       <div className="w-full min-h-screen top-20 bg-cover bg-white bg-opacity-30">
-        <div className="max-w-[70vh] m-auto p-3 flex flex-col gap-8 items-center">
+        <div className="max-w-[70vh] m-auto p-3 flex flex-col gap-5 items-center">
           <div className="p-3 flex flex-col items-center">
             <h1 className="text-white text-[25px] p-3">Memory Game</h1>
-            <div className="w-fit h-fit m-5">
+            <div className="w-fit h-fit m-3">
               <button
                 onClick={shuffleCards}
                 className="justify-center border border-white rounded-md p-2 text-white bg-[#3730a3] hover:bg-[#6366f1] cursor-pointer"
@@ -86,7 +86,7 @@ const MemoryGame = () => {
               </button>
             </div>
           </div>
-          <div className="flex-grow grid grid-cols-3 gap-4">
+          <div className="flex-grow grid grid-cols-3 md:grid-cols-4 gap-4">
             {cards.map((card) => (
               <SingleCard
                 key={card.id}
