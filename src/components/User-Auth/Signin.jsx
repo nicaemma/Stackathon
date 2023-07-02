@@ -25,7 +25,7 @@ const Signin = () => {
   }
 
   return (
-    <div className="w-full h-screen font-fira bg-cover bg-no-repeat bg-[url('/img/background3.png')]">
+    <div className="w-full h-screen font-fira bg-cover bg-no-repeat md:bg-[url('/img/background3.png')]">
       <div className="w-full h-screen bg-cover bg-white bg-opacity-30">
         <div className="py-10">
           <div className="max-w-[500px] rounded-sm mx-auto bg-white p-8">

@@ -9,7 +9,7 @@ const SingleCard = ({ card, handleChoice, flipped, disabled }) => {
 
   return (
     <div key={card.id} className="relative">
-      <div className="">
+      <div>
         <img
           className={
             flipped
