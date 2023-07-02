@@ -2,7 +2,7 @@
 import { Routes, Route } from "react-router-dom";
 import Homepage from "./components/Homepage";
 import Navbar from "./components/Navbar";
-import Skills from "./components/Skills";
+import Skills from "./components/skills/Skills";
 import Signin from "./components/user-auth/Signin";
 import Signup from "./components/user-auth/Signup";
 import { AuthContextProvider } from "./context/AuthContext";
