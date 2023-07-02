@@ -14,14 +14,14 @@ import {
   query,
   deleteDoc,
 } from "firebase/firestore";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import Quiz from "./Quiz";
 
 const Skills = () => {
   const [skills, setSkills] = useState([]);
   const [newSkill, setNewSkill] = useState("");
 
   const { currentUser } = UserAuth();
-  const navigate = useNavigate();
 
   // Read skill from firebase --> changed to responsive to changes real-time
   const skillsCollectionRef = collection(db, "skills");
@@ -85,64 +85,69 @@ const Skills = () => {
   };
 
   return (
-    <div className="font-sora w-full h-screen top-20 bg-cover bg-no-repeat bg-[url('/img/background5.png')]">
-      <div className="w-full h-screen top-20 bg-cover bg-white bg-opacity-30">
-        <div className="max-w-[960px] m-auto p-3 flex flex-col gap-8 items-center">
-          <div className="p-3 max-w-[550px] flex flex-col gap-2 items-center">
-            <h3 className="text-2xl font-bold text-center text-gray-800 p-3">
-              My Stress Relievers
-            </h3>
-            <div className="py-4 px-3 rounded-lg text-center bg-indigo-200">
-              <div>
-                Coping skills help us navigate and overcome stressful moments
-                with increasing ease. Use this page to add stress relievers to
-                your personal list and track their use.
+    <>
+      <div className="font-sora w-full h-screen top-20 bg-cover bg-no-repeat bg-[url('/img/background5.png')]">
+        <div className="w-full h-screen top-20 bg-cover bg-white bg-opacity-30">
+          <div className="max-w-[960px] m-auto p-3 flex flex-col gap-8 items-center">
+            <div className="p-3 max-w-[550px] flex flex-col gap-2 items-center">
+              <h3 className="text-2xl font-bold text-center text-gray-800 p-3">
+                My Stress Relievers
+              </h3>
+              <div className="py-4 px-3 rounded-lg text-center bg-indigo-200">
+                <div>
+                  Coping skills help us navigate and overcome stressful moments
+                  with increasing ease. Use this page to add stress relievers to
+                  your personal list and track their use.
+                </div>
               </div>
             </div>
-          </div>
-          <form
-            className={!currentUser ? "hidden" : "flex justify-between"}
-            onSubmit={createSkill}
-          >
-            <input
-              value={newSkill}
-              className="border-[1px] border-gray-400 p-2 w-full text-xl rounded-md"
-              type="text"
-              placeholder="Add coping skill"
-              onChange={(e) => setNewSkill(e.target.value)}
-            />
-            <button
-              className="p-4 ml-2 rounded-full bg-indigo-300 hover:bg-indigo-400"
-              type="submit"
+            <form
+              className={!currentUser ? "hidden" : "flex justify-between"}
+              onSubmit={createSkill}
             >
-              <AiOutlinePlus />
-            </button>
-          </form>
+              <input
+                value={newSkill}
+                className="border-[1px] border-gray-400 p-2 w-full text-xl rounded-md"
+                type="text"
+                placeholder="Add coping skill"
+                onChange={(e) => setNewSkill(e.target.value)}
+              />
+              <button
+                className="p-4 ml-2 rounded-full bg-indigo-300 hover:bg-indigo-400"
+                type="submit"
+              >
+                <AiOutlinePlus />
+              </button>
+            </form>
+          </div>
+          {!currentUser ? (
+            <div>
+              <Link to="/signin">
+                <div className="bg-slate-100 max-w-[200px] hover:bg-slate-200 w-full m-auto text-center rounded-md shadow-xl p-4">
+                  <span className="font-extrabold">Sign in</span> to start!
+                </div>
+              </Link>
+            </div>
+          ) : (
+            <div className="bg-slate-100 max-w-[400px] w-full m-auto rounded-md shadow-xl p-4">
+              <ul>
+                {skills.map((skill, index) => (
+                  <Skill
+                    key={index}
+                    skill={skill}
+                    toggleComplete={toggleComplete}
+                    deleteSkill={deleteSkill}
+                  />
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
-        {!currentUser ? (
-          <div>
-            <Link to="/signin">
-              <div className="bg-slate-100 max-w-[200px] hover:bg-slate-200 w-full m-auto text-center rounded-md shadow-xl p-4">
-                <span className="font-extrabold">Sign in</span> to start!
-              </div>
-            </Link>
-          </div>
-        ) : (
-          <div className="bg-slate-100 max-w-[400px] w-full m-auto rounded-md shadow-xl p-4">
-            <ul>
-              {skills.map((skill, index) => (
-                <Skill
-                  key={index}
-                  skill={skill}
-                  toggleComplete={toggleComplete}
-                  deleteSkill={deleteSkill}
-                />
-              ))}
-            </ul>
-          </div>
-        )}
+        <div>
+          <Quiz />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
