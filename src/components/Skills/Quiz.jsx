@@ -3,10 +3,12 @@ import React, { useState } from "react";
 const Quiz = () => {
   const questions = [
     {
-      questionText: "Sample Question?",
+      questionText: "Which of these sounds best right now?",
       answerOptions: [
-        { answerText: "One answer" },
-        { answerText: "Second answer" },
+        { answerText: "Moving my body" },
+        { answerText: "Getting thoughts out of my head" },
+        { answerText: "Talking to someone who gets me" },
+        { answerText: "Doing something creative" },
       ],
     },
   ];
