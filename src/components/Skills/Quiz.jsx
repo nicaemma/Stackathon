@@ -1,7 +1,66 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Quiz = () => {
-  return <div>Quiz</div>;
+  const questions = [
+    {
+      questionText: "Sample Question?",
+      answerOptions: [
+        { answerText: "One answer" },
+        { answerText: "Second answer" },
+      ],
+    },
+  ];
+
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+
+  const [showResult, setShowResult] = useState(false);
+
+  const handleClick = () => {
+    const nextQuestion = currentQuestion + 1;
+    if (nextQuestion < questions.length) {
+      setCurrentQuestion(nextQuestion);
+    } else {
+      setShowResult("Quiz results");
+    }
+  };
+  return (
+    <>
+      <div>
+        <div className="d-flex align-items-center justify-content-center">
+          <div className="w-100">
+            {showResult ? (
+              <div>
+                <div>
+                  <div>These are your results</div>
+                </div>
+              </div>
+            ) : (
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <span>Question {currentQuestion + 1}</span>/
+                      {questions.length}
+                    </div>
+                    <div>{questions[currentQuestion].questionText}</div>
+                  </div>
+                  <div>
+                    {questions[currentQuestion].answerOptions.map((answer) => (
+                      <div>
+                        <button onClick={handleClick}>
+                          {answer.answerText}
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </>
+  );
 };
 
 export default Quiz;
