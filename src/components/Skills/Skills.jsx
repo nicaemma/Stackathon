@@ -15,7 +15,7 @@ import {
   deleteDoc,
 } from "firebase/firestore";
 import { Link } from "react-router-dom";
-import Quiz from "./Quiz";
+// import Quiz from "./Quiz";
 
 const Skills = () => {
   const [skills, setSkills] = useState([]);
@@ -85,7 +85,7 @@ const Skills = () => {
   };
 
   return (
-    <>
+    <div>
       <div className="font-sora w-full h-screen top-20 bg-cover bg-no-repeat bg-[url('/img/background5.png')]">
         <div className="w-full h-screen top-20 bg-cover bg-white bg-opacity-30">
           <div className="max-w-[960px] m-auto p-3 flex flex-col gap-8 items-center">
@@ -142,12 +142,15 @@ const Skills = () => {
               </ul>
             </div>
           )}
-        </div>
-        <div>
-          <Quiz />
+          <div className="">
+            <Link to="/quiz">
+              {" "}
+              <div>Click to take Quiz</div>
+            </Link>
+          </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
