@@ -142,7 +142,7 @@ const Skills = () => {
               </ul>
             </div>
           )}
-          <div className="">
+          <div className="flex place-content-center p-5">
             <Link to="/quiz">
               {" "}
               <div>Click to take Quiz</div>
