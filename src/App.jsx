@@ -14,6 +14,7 @@ import Journal from "./components/journal/Journal";
 import AddEntry from "./components/journal/AddEntry";
 import ViewEntry from "./components/journal/ViewEntry";
 import EditEntry from "./components/journal/EditEntry";
+import Quiz from "./components/Skills/Quiz";
 
 const App = () => {
   return (
@@ -33,6 +34,7 @@ const App = () => {
           <Route path="/journal/write" element={<AddEntry />} />
           <Route path="/journal/:id/*" element={<ViewEntry />} />
           <Route path="/journal/:id/edit" element={<EditEntry />} />
+          <Route path="/quiz" element={<Quiz />} />
         </Routes>
       </AuthContextProvider>
     </>
