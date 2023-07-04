@@ -11,6 +11,15 @@ const Quiz = () => {
         { answerText: "Doing something creative" },
       ],
     },
+    {
+      questionText: "My deal morning routine is...",
+      answerOptions: [
+        { answerText: "Journaling" },
+        { answerText: "A workout or walk" },
+        { answerText: "Drinking a cup of coffee or tea" },
+        { answerText: "10 minutes of quiet time" },
+      ],
+    },
   ];
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
