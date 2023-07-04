@@ -20,6 +20,42 @@ const Quiz = () => {
         { answerText: "10 minutes of quiet time" },
       ],
     },
+    {
+      questionText: "My top priority right now is...",
+      answerOptions: [
+        { answerText: "Feeling connected to others" },
+        { answerText: "Achieving my goals" },
+        { answerText: "My health and well being" },
+        { answerText: "Making life more fun and enjoyable" },
+      ],
+    },
+    {
+      questionText: "A goal I'd like to achieve in the near future is...",
+      answerOptions: [
+        { answerText: "Being part of/contributing to my community" },
+        { answerText: "Being kinder to myself" },
+        { answerText: "Spending more time on my hobbies" },
+        { answerText: "Furthing my education/personal growth" },
+      ],
+    },
+    {
+      questionText: "I feel the most motivated when...",
+      answerOptions: [
+        { answerText: "I finish a good workout" },
+        { answerText: "I'm supported and encouraged by others" },
+        { answerText: "I feel like I'm fulfilling my purpose in life" },
+        { answerText: "I check something important off my to-do list" },
+      ],
+    },
+    {
+      questionText: "What I've been struggling with lately...",
+      answerOptions: [
+        { answerText: "Feeling overwhelmed" },
+        { answerText: "Feeling disconnected from others" },
+        { answerText: "Feeling disorganized" },
+        { answerText: "Not knowing what direction I'm going in" },
+      ],
+    },
   ];
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
