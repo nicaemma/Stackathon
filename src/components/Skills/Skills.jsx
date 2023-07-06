@@ -129,8 +129,10 @@ const Skills = () => {
           {!currentUser ? (
             <div>
               <Link to="/signin">
-                <div className="bg-slate-100 max-w-[200px] hover:bg-slate-200 w-full m-auto text-center rounded-md shadow-xl p-4">
-                  Sign in to access your personal list
+                <div className="flex items cetner justify-center">
+                  <div className="mx-auto text-center inline-block bg-slate-100 hover:bg-slate-200 rounded-md shadow-xl p-4">
+                    Sign in to access your personal coping skills list
+                  </div>
                 </div>
               </Link>
             </div>
