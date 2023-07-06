@@ -121,9 +121,9 @@ const Skills = () => {
             </form>
           </div>
           <div className="flex items center justify-center mb-20">
-            <div className="mx-auto text-center inline-block bg-slate-100 hover:bg-slate-200 rounded-md shadow-xl p-4">
+            <div className="mx-auto text-center inline-block bg-slate-100 hover:bg-slate-200 rounded-md shadow-xl p-3">
               <Link to="/quiz">
-                <div>
+                <div className="pb-3">
                   Take a Self Care Quiz to discover personalized coping skill
                   suggestions!
                 </div>
