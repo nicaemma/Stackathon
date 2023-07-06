@@ -130,7 +130,7 @@ const Skills = () => {
             <div>
               <Link to="/signin">
                 <div className="bg-slate-100 max-w-[200px] hover:bg-slate-200 w-full m-auto text-center rounded-md shadow-xl p-4">
-                  <span className="font-extrabold">Sign in</span> to start!
+                  Sign in to access your personal list
                 </div>
               </Link>
             </div>

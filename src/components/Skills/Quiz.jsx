@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Quiz = () => {
   const questions = [
@@ -78,6 +79,13 @@ const Quiz = () => {
             {showResult ? (
               <div>
                 <div>
+                  <div>
+                    <Link to="/signin">
+                      <div className="bg-slate-100 max-w-[200px] hover:bg-slate-200 w-full m-auto text-center rounded-md shadow-xl p-4">
+                        Sign in to access
+                      </div>
+                    </Link>
+                  </div>
                   <div>
                     {"Results of this Self Care Quiz will be emailed to you!"}
                   </div>
