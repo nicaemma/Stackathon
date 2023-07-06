@@ -78,7 +78,9 @@ const Quiz = () => {
             {showResult ? (
               <div>
                 <div>
-                  <div>These are your results</div>
+                  <div>
+                    {"Results of this Self Care Quiz will be emailed to you!"}
+                  </div>
                 </div>
               </div>
             ) : (
