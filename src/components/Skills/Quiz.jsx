@@ -74,46 +74,54 @@ const Quiz = () => {
   return (
     <>
       <div>
-        <div className="d-flex align-items-center justify-content-center">
-          <div className="w-100">
-            {showResult ? (
-              <div>
-                <div>
-                  <div>
-                    <Link to="/signin">
-                      <div className="bg-slate-100 max-w-[200px] hover:bg-slate-200 w-full m-auto text-center rounded-md shadow-xl p-4">
-                        Sign in to access
-                      </div>
-                    </Link>
-                  </div>
-                  <div>
-                    {"Results of this Self Care Quiz will be emailed to you!"}
-                  </div>
-                </div>
-              </div>
-            ) : (
-              <div>
-                <div>
+        <div className="font-sora w-full h-screen top-20 bg-cover bg-no-repeat bg-[url('/img/background5.png')]">
+          <div className="w-full h-screen top-20 bg-cover bg-white bg-opacity-30">
+            <div className="max-w-[960px] m-auto p-3 flex flex-col gap-8 items-center">
+              <div className="p-3 max-w-[550px] flex flex-col gap-2 items-center">
+                {showResult ? (
                   <div>
                     <div>
-                      <span>Question {currentQuestion + 1}</span>/
-                      {questions.length}
-                    </div>
-                    <div>{questions[currentQuestion].questionText}</div>
-                  </div>
-                  <div>
-                    {questions[currentQuestion].answerOptions.map((answer) => (
                       <div>
-                        <button onClick={handleClick}>
-                          {answer.answerText}
-                        </button>
+                        <Link to="/signin">
+                          <div className="bg-slate-100 max-w-[200px] hover:bg-slate-200 w-full m-auto text-center rounded-md shadow-xl p-4">
+                            Sign in to access
+                          </div>
+                        </Link>
                       </div>
-                    ))}
+                      <div>
+                        {
+                          "Results of this Self Care Quiz will be emailed to you!"
+                        }
+                      </div>
+                    </div>
                   </div>
-                </div>
+                ) : (
+                  <div>
+                    <div>
+                      <div>
+                        <div>
+                          <span>Question {currentQuestion + 1}</span>/
+                          {questions.length}
+                        </div>
+                        <div>{questions[currentQuestion].questionText}</div>
+                      </div>
+                      <div>
+                        {questions[currentQuestion].answerOptions.map(
+                          (answer) => (
+                            <div>
+                              <button onClick={handleClick}>
+                                {answer.answerText}
+                              </button>
+                            </div>
+                          )
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
-            )}
-          </div>
+            </div>{" "}
+          </div>{" "}
         </div>
       </div>
     </>
