@@ -120,16 +120,21 @@ const Skills = () => {
               </button>
             </form>
           </div>
-          <div className="flex place-content-center p-5">
-            <Link to="/quiz">
-              {" "}
-              <div>Click to take Quiz</div>
-            </Link>
+          <div className="flex items center justify-center mb-20">
+            <div className="mx-auto text-center inline-block bg-slate-100 hover:bg-slate-200 rounded-md shadow-xl p-4">
+              <Link to="/quiz">
+                <div>
+                  Take a Self Care Quiz to discover personalized coping skill
+                  suggestions!
+                </div>
+                <div className="font-extrabold">Click to Start Quiz!</div>
+              </Link>
+            </div>{" "}
           </div>
           {!currentUser ? (
             <div>
               <Link to="/signin">
-                <div className="flex items cetner justify-center">
+                <div className="flex items center justify-center">
                   <div className="mx-auto text-center inline-block bg-slate-100 hover:bg-slate-200 rounded-md shadow-xl p-4">
                     Sign in to access your personal coping skills list
                   </div>
