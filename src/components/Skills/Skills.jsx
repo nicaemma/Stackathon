@@ -120,6 +120,12 @@ const Skills = () => {
               </button>
             </form>
           </div>
+          <div className="flex place-content-center p-5">
+            <Link to="/quiz">
+              {" "}
+              <div>Click to take Quiz</div>
+            </Link>
+          </div>
           {!currentUser ? (
             <div>
               <Link to="/signin">
@@ -142,12 +148,6 @@ const Skills = () => {
               </ul>
             </div>
           )}
-          <div className="flex place-content-center p-5">
-            <Link to="/quiz">
-              {" "}
-              <div>Click to take Quiz</div>
-            </Link>
-          </div>
         </div>
       </div>
     </div>
