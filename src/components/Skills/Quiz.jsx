@@ -6,55 +6,64 @@ const Quiz = () => {
     {
       questionText: "Which of these sounds best right now?",
       answerOptions: [
-        { answerText: "Moving my body" },
-        { answerText: "Getting thoughts out of my head" },
-        { answerText: "Talking to someone who gets me" },
-        { answerText: "Doing something creative" },
+        { option: "A", answerText: "Moving my body" },
+        { option: "B", answerText: "Getting thoughts out of my head" },
+        { option: "C", answerText: "Talking to someone who gets me" },
+        { option: "D", answerText: "Doing something creative" },
       ],
     },
     {
       questionText: "My ideal morning routine is...",
       answerOptions: [
-        { answerText: "Journaling" },
-        { answerText: "A workout or walk" },
-        { answerText: "Drinking a cup of coffee or tea" },
-        { answerText: "10 minutes of quiet time" },
+        { option: "A", answerText: "Journaling" },
+        { option: "B", answerText: "A workout or walk" },
+        { option: "C", answerText: "Drinking a cup of coffee or tea" },
+        { option: "D", answerText: "10 minutes of quiet time" },
       ],
     },
     {
       questionText: "My top priority right now is...",
       answerOptions: [
-        { answerText: "Feeling connected to others" },
-        { answerText: "Achieving my goals" },
-        { answerText: "My health and well being" },
-        { answerText: "Making life more fun and enjoyable" },
+        { option: "A", answerText: "Feeling connected to others" },
+        { option: "B", answerText: "Achieving my goals" },
+        { option: "C", answerText: "My health and well being" },
+        { option: "D", answerText: "Making life more fun and enjoyable" },
       ],
     },
     {
       questionText: "A goal I'd like to achieve in the near future is...",
       answerOptions: [
-        { answerText: "Being part of/contributing to my community" },
-        { answerText: "Being kinder to myself" },
-        { answerText: "Spending more time on my hobbies" },
-        { answerText: "Furthing my education/personal growth" },
+        {
+          option: "A",
+          answerText: "Being part of/contributing to my community",
+        },
+        { option: "B", answerText: "Being kinder to myself" },
+        { option: "A", answerText: "Spending more time on my hobbies" },
+        { option: "D", answerText: "Furthing my education/personal growth" },
       ],
     },
     {
       questionText: "I feel the most motivated when...",
       answerOptions: [
-        { answerText: "I finish a good workout" },
-        { answerText: "I'm supported and encouraged by others" },
-        { answerText: "I feel like I'm fulfilling my purpose in life" },
-        { answerText: "I check something important off my to-do list" },
+        { option: "A", answerText: "I finish a good workout" },
+        { option: "B", answerText: "I'm supported and encouraged by others" },
+        {
+          option: "C",
+          answerText: "I feel like I'm fulfilling my purpose in life",
+        },
+        {
+          option: "D",
+          answerText: "I check something important off my to-do list",
+        },
       ],
     },
     {
       questionText: "What I've been struggling with lately...",
       answerOptions: [
-        { answerText: "Feeling overwhelmed" },
-        { answerText: "Feeling disconnected from others" },
-        { answerText: "Feeling disorganized" },
-        { answerText: "Not knowing what direction I'm going in" },
+        { option: "A", answerText: "Feeling overwhelmed" },
+        { option: "B", answerText: "Feeling disconnected from others" },
+        { option: "C", answerText: "Feeling disorganized" },
+        { option: "D", answerText: "Not knowing what direction I'm going in" },
       ],
     },
   ];
@@ -101,18 +110,18 @@ const Quiz = () => {
                       <div>
                         <div className="rounded-md shadow-lg p-3 bg-indigo-100 mx-5 my-10">
                           <div>
-                            <div>
+                            <div className="pb-3">
                               <span>{currentQuestion + 1}</span> /{" "}
                               {questions.length}
                             </div>
-                            <div className="text-[20px]">
+                            <div className="text-[20px] pr-3 py-3">
                               {questions[currentQuestion].questionText}
                             </div>
                           </div>
                           <div>
                             {questions[currentQuestion].answerOptions.map(
                               (answer) => (
-                                <div key={answer.id}>
+                                <div className="pt-4" key={answer.id}>
                                   <button onClick={handleClick}>
                                     {answer.answerText}
                                   </button>
