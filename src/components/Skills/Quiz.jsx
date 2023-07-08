@@ -110,7 +110,7 @@ const Quiz = () => {
                           <div>
                             {questions[currentQuestion].answerOptions.map(
                               (answer) => (
-                                <div>
+                                <div key={answer.id}>
                                   <button onClick={handleClick}>
                                     {answer.answerText}
                                   </button>
