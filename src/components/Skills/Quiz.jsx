@@ -59,6 +59,8 @@ const Quiz = () => {
     },
   ];
 
+  const [result, setResult] = useState("");
+
   const [currentQuestion, setCurrentQuestion] = useState(0);
 
   const [showResult, setShowResult] = useState(false);
