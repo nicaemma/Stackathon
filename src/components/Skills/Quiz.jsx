@@ -13,7 +13,7 @@ const Quiz = () => {
       ],
     },
     {
-      questionText: "My deal morning routine is...",
+      questionText: "My ideal morning routine is...",
       answerOptions: [
         { answerText: "Journaling" },
         { answerText: "A workout or walk" },
@@ -105,7 +105,9 @@ const Quiz = () => {
                               <span>{currentQuestion + 1}</span> /{" "}
                               {questions.length}
                             </div>
-                            <div>{questions[currentQuestion].questionText}</div>
+                            <div className="text-[20px]">
+                              {questions[currentQuestion].questionText}
+                            </div>
                           </div>
                           <div>
                             {questions[currentQuestion].answerOptions.map(
