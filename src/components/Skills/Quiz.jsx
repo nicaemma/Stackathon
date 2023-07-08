@@ -65,12 +65,14 @@ const Quiz = () => {
 
   const [showResult, setShowResult] = useState(false);
 
-  const handleClick = () => {
+  const handleClick = async () => {
     const nextQuestion = currentQuestion + 1;
+
     if (nextQuestion < questions.length) {
       setCurrentQuestion(nextQuestion);
     } else {
-      setShowResult("Quiz results");
+      setResult("Your results will be in your inbox in <5 minutes!");
+      setShowResult(result);
     }
   };
   return (
@@ -92,11 +94,7 @@ const Quiz = () => {
                               </div>
                             </Link>
                           </div>
-                          <div>
-                            {
-                              "Results of this Self Care Quiz will be emailed to you!"
-                            }
-                          </div>
+                          <div>{result}</div>
                         </div>
                       </div>
                     ) : (
