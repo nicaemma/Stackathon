@@ -108,9 +108,9 @@ const Quiz = () => {
                       </div>
                     ) : (
                       <div>
-                        <div className="rounded-md shadow-lg p-8 bg-indigo-100 mx-5 my-10">
+                        <div className="text-[16px] rounded-md shadow-lg p-8 bg-indigo-100 mx-5 my-10">
                           <div>
-                            <div className="pb-1">
+                            <div className="pb-1 text-[12px]">
                               <span>{currentQuestion + 1}</span> /{" "}
                               {questions.length}
                             </div>
