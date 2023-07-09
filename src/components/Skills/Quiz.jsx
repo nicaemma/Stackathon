@@ -108,13 +108,13 @@ const Quiz = () => {
                       </div>
                     ) : (
                       <div>
-                        <div className="rounded-md shadow-lg p-3 bg-indigo-100 mx-5 my-10">
+                        <div className="rounded-md shadow-lg p-8 bg-indigo-100 mx-5 my-10">
                           <div>
-                            <div className="pb-3">
+                            <div className="pb-1">
                               <span>{currentQuestion + 1}</span> /{" "}
                               {questions.length}
                             </div>
-                            <div className="text-[20px] pr-3 py-3">
+                            <div className="text-[20px] pr-3 py-2">
                               {questions[currentQuestion].questionText}
                             </div>
                           </div>
