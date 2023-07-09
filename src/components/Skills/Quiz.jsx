@@ -123,7 +123,7 @@ const Quiz = () => {
                               (answer) => (
                                 <div className="pt-4" key={answer.id}>
                                   <button onClick={handleClick}>
-                                    {answer.answerText}
+                                    {answer.option}. {answer.answerText}
                                   </button>
                                 </div>
                               )
