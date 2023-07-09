@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { TbCircleLetterA } from "react-icons/tb";
 
 const Quiz = () => {
   const questions = [
@@ -120,13 +121,19 @@ const Quiz = () => {
                           </div>
                           <div>
                             {questions[currentQuestion].answerOptions.map(
-                              (answer) => (
-                                <div className="pt-4" key={answer.id}>
-                                  <button onClick={handleClick}>
-                                    {answer.option}. {answer.answerText}
-                                  </button>
-                                </div>
-                              )
+                              (answer) => {
+                                return (
+                                  <div className="pt-4" key={answer.id}>
+                                    <button
+                                      onClick={handleClick}
+                                      className="flex flex-rows"
+                                    >
+                                      <div>{answer.option} </div>
+                                      <div>{`) ${answer.answerText}`} </div>
+                                    </button>
+                                  </div>
+                                );
+                              }
                             )}
                           </div>
                         </div>
