@@ -128,7 +128,14 @@ const Quiz = () => {
                                       onClick={handleClick}
                                       className="flex flex-rows"
                                     >
-                                      <div>{answer.option} </div>
+                                      {answer.option === "A" ? (
+                                        <div>
+                                          {" "}
+                                          <TbCircleLetterA size={25} />{" "}
+                                        </div>
+                                      ) : (
+                                        <div>{answer.option} </div>
+                                      )}
                                       <div>{`) ${answer.answerText}`} </div>
                                     </button>
                                   </div>
