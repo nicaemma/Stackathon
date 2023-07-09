@@ -131,12 +131,15 @@ const Quiz = () => {
                                       {answer.option === "A" ? (
                                         <div>
                                           {" "}
-                                          <TbCircleLetterA size={25} />{" "}
+                                          <TbCircleLetterA
+                                            size={25}
+                                            fill={"blue"}
+                                          />{" "}
                                         </div>
                                       ) : (
                                         <div>{answer.option} </div>
                                       )}
-                                      <div>{`) ${answer.answerText}`} </div>
+                                      <div> {answer.answerText}</div>
                                     </button>
                                   </div>
                                 );
