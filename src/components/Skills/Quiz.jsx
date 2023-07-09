@@ -1,6 +1,15 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { TbCircleLetterA } from "react-icons/tb";
+import {
+  TbCircleLetterA,
+  TbCircleLetterB,
+  TbCircleLetterC,
+  TbCircleLetterD,
+  TbLetterA,
+  TbLetterB,
+  TbLetterC,
+  TbLetterD,
+} from "react-icons/tb";
 
 const Quiz = () => {
   const questions = [
@@ -128,16 +137,29 @@ const Quiz = () => {
                                       onClick={handleClick}
                                       className="flex flex-rows"
                                     >
-                                      {answer.option === "A" ? (
-                                        <div>
+                                      {answer.option === "A" && (
+                                        <div className="pr-3">
                                           {" "}
-                                          <TbCircleLetterA
-                                            size={25}
-                                            fill={"blue"}
-                                          />{" "}
+                                          <TbLetterA size={25} />{" "}
                                         </div>
-                                      ) : (
-                                        <div>{answer.option} </div>
+                                      )}
+                                      {answer.option === "B" && (
+                                        <div className="pr-3">
+                                          {" "}
+                                          <TbLetterB size={25} />{" "}
+                                        </div>
+                                      )}
+                                      {answer.option === "C" && (
+                                        <div className="pr-3">
+                                          {" "}
+                                          <TbLetterC size={25} />{" "}
+                                        </div>
+                                      )}
+                                      {answer.option === "D" && (
+                                        <div className="pr-3">
+                                          {" "}
+                                          <TbLetterD size={25} />{" "}
+                                        </div>
                                       )}
                                       <div> {answer.answerText}</div>
                                     </button>
