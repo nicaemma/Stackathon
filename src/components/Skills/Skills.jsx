@@ -93,7 +93,7 @@ const Skills = () => {
               <h3 className="text-2xl font-bold text-center text-gray-800 p-3">
                 My Stress Relievers
               </h3>
-              <div className="py-4 px-3 rounded-lg text-center bg-indigo-200">
+              <div className="py-4 px-3 rounded-lg text-sm text-center bg-indigo-200">
                 <div>
                   Coping skills help us navigate and overcome stressful moments
                   with increasing ease. Use this page to add stress relievers to
@@ -120,41 +120,75 @@ const Skills = () => {
               </button>
             </form>
           </div>
-          <div className="flex items center justify-center mb-20">
-            <div className="mx-auto text-center inline-block bg-slate-100 hover:bg-slate-200 rounded-md shadow-xl p-3">
-              <Link to="/quiz">
-                <div className="pb-3">
-                  Take a Self Care Quiz to discover personalized coping skill
-                  suggestions!
-                </div>
-                <div className="font-extrabold">Click to Start Quiz!</div>
-              </Link>
-            </div>{" "}
-          </div>
+
           {!currentUser ? (
             <div>
-              <Link to="/signin">
-                <div className="flex items center justify-center">
-                  <div className="mx-auto text-center inline-block bg-slate-100 hover:bg-slate-200 rounded-md shadow-xl p-4">
-                    Sign in to start your personal coping skills list
+              <div className="flex items center justify-center mb-20">
+                <div className="mx-auto text-center inline-block bg-slate-100 hover:bg-slate-200 rounded-md shadow-xl p-3">
+                  <Link to="/quiz">
+                    <div className="pb-3 text-sm">
+                      Take a Self Care Quiz to discover personalized coping
+                      skill suggestions!
+                    </div>
+                    <div className="font-extrabold">Click to Start Quiz!</div>
+                  </Link>
+                </div>{" "}
+              </div>
+              <div>
+                <Link to="/signin">
+                  <div className="flex items center justify-center">
+                    <div className="mx-auto text-center inline-block bg-slate-100 hover:bg-slate-200 rounded-md shadow-xl p-4">
+                      Sign in to start your personal coping skills list
+                    </div>
                   </div>
-                </div>
-              </Link>
+                </Link>
+              </div>
             </div>
           ) : (
             <div>
-              {skills.length > 0 && (
-                <div className="bg-slate-100 max-w-[400px] w-full m-auto rounded-md shadow-xl p-4">
-                  <ul>
-                    {skills.map((skill, index) => (
-                      <Skill
-                        key={index}
-                        skill={skill}
-                        toggleComplete={toggleComplete}
-                        deleteSkill={deleteSkill}
-                      />
-                    ))}
-                  </ul>
+              {skills.length > 0 ? (
+                <div>
+                  <div className="bg-slate-100 max-w-[400px] w-full m-auto rounded-md shadow-xl p-4">
+                    <ul>
+                      {skills.map((skill, index) => (
+                        <Skill
+                          key={index}
+                          skill={skill}
+                          toggleComplete={toggleComplete}
+                          deleteSkill={deleteSkill}
+                        />
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="flex items center justify-center mb-10 mt-10">
+                    <div className="mx-auto text-center inline-block bg-slate-100 hover:bg-slate-200 rounded-md shadow-xl p-3">
+                      <Link to="/quiz">
+                        <div className="pb-3 text-sm ">
+                          Take a Self Care Quiz to discover personalized coping
+                          skill suggestions!
+                        </div>
+                        <div className="font-extrabold">
+                          Click to Start Quiz!
+                        </div>
+                      </Link>
+                    </div>{" "}
+                  </div>
+                </div>
+              ) : (
+                <div>
+                  <div className="flex items center justify-center mb-10 mt-10">
+                    <div className="mx-auto text-center inline-block bg-slate-100 hover:bg-slate-200 rounded-md shadow-xl p-3">
+                      <Link to="/quiz">
+                        <div className="pb-3 text-sm">
+                          Take a Self Care Quiz to discover personalized coping
+                          skill suggestions!
+                        </div>
+                        <div className="font-extrabold">
+                          Click to Start Quiz!
+                        </div>
+                      </Link>
+                    </div>{" "}
+                  </div>
                 </div>
               )}
             </div>
