@@ -70,7 +70,15 @@ const Journal = () => {
                   </Link>
                 </div>
               ) : (
-                <div></div>
+                <div>
+                  <div className="place-content-centerflex">
+                    <Link to="/journal/write">
+                      <button className="border-orange-300 drop-shadow-sm p-3 ml-2 bg-orange-200 hover:bg-orange-300 rounded-lg">
+                        Write New Entry
+                      </button>
+                    </Link>
+                  </div>
+                </div>
               )}
             </div>
           </div>
