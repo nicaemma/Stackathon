@@ -74,8 +74,8 @@ const Homepage = () => {
               <div className="pt-2 px-6 justify-center items-center flex flex-wrap font-rubik sm:text-2xl text-xl text-center">
                 {!currentUser ? (
                   <p className="sm:text-lg text-base">
-                    Guiding your self care path & cultivating awareness for your
-                    wellbeing
+                    Guiding your self care path &
+                    <div>cultivating awareness for your wellbeing</div>
                   </p>
                 ) : (
                   <div>
@@ -111,7 +111,7 @@ const Homepage = () => {
             </div>
             {/* </div> */}
             {!currentUser && (
-              <div className="flex flex-col justify-center items-center text-xl">
+              <div className="p-4 flex flex-col justify-center items-center text-xl">
                 <div>
                   <Link
                     to="/signin"
