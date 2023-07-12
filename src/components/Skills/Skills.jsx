@@ -136,23 +136,27 @@ const Skills = () => {
               <Link to="/signin">
                 <div className="flex items center justify-center">
                   <div className="mx-auto text-center inline-block bg-slate-100 hover:bg-slate-200 rounded-md shadow-xl p-4">
-                    Sign in to access your personal coping skills list
+                    Sign in to start your personal coping skills list
                   </div>
                 </div>
               </Link>
             </div>
           ) : (
-            <div className="bg-slate-100 max-w-[400px] w-full m-auto rounded-md shadow-xl p-4">
-              <ul>
-                {skills.map((skill, index) => (
-                  <Skill
-                    key={index}
-                    skill={skill}
-                    toggleComplete={toggleComplete}
-                    deleteSkill={deleteSkill}
-                  />
-                ))}
-              </ul>
+            <div>
+              {skills.length > 0 && (
+                <div className="bg-slate-100 max-w-[400px] w-full m-auto rounded-md shadow-xl p-4">
+                  <ul>
+                    {skills.map((skill, index) => (
+                      <Skill
+                        key={index}
+                        skill={skill}
+                        toggleComplete={toggleComplete}
+                        deleteSkill={deleteSkill}
+                      />
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
           )}
         </div>

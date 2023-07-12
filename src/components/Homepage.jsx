@@ -115,7 +115,7 @@ const Homepage = () => {
               <div className="pt-2 flex flex-col justify-center items-center text-xl">
                 <Link
                   to="/signin"
-                  className="bg-indigo-400 hover:bg-indigo-600 p-3 rounded-xl text-white ease-in duration-200 hover:bg-pale-pink"
+                  className="bg-indigo-400 hover:bg-indigo-600 p-3 sm:text-2xl text-xl rounded-xl text-white ease-in duration-200 hover:bg-pale-pink"
                 >
                   Sign In / Sign Up
                 </Link>
